@@ -1,0 +1,502 @@
+{
+ "plans": [
+  {
+   "id": "lite",
+   "name": "Lite",
+   "price": 600,
+   "publications": "500+ Guaranteed Publications",
+   "includes": [
+    "Editorial Assistance",
+    "SEO Optimization",
+    "1 - 2 Images Included",
+    "Metric Reports"
+   ],
+   "publishers": [
+    "business-insider",
+    "apnews",
+    "benzinga",
+    "street-insider",
+    "marketwatch",
+    "live-bitcoin-news",
+    "thenewscrypto",
+    "binance",
+    "coinmarketcap",
+    "themanillatimes",
+    "fox8news"
+   ]
+  },
+  {
+   "id": "starter",
+   "name": "Starter",
+   "price": 2900,
+   "publications": "500+ Guaranteed Publications",
+   "includes": [
+    "Editorial Assistance",
+    "SEO Optimization",
+    "1 - 2 Images Included",
+    "Metric Reports"
+   ],
+   "publishers": [
+    "investing-com",
+    "the-defiant",
+    "bitcoinist",
+    "hackernoon",
+    "blockonomi",
+    "crypto-wisser",
+    "cryptobriefing",
+    "analytics-insight",
+    "captain-altcoin",
+    "coinjournal",
+    "invezz",
+    "coinmarketcap",
+    "binance",
+    "thenewscrypto",
+    "coincu",
+    "coinedition",
+    "techbullion",
+    "mpost-io"
+   ]
+  },
+  {
+   "id": "gold",
+   "name": "Gold",
+   "price": 6000,
+   "publications": "550+ Guaranteed Publications",
+   "includes": [
+    "Editorial Assistance",
+    "SEO Optimization",
+    "1 - 2 Images Included",
+    "Metric Reports"
+   ],
+   "publishers": [
+    "news-bitcoin-com",
+    "be-in-crypto",
+    "crypto-news",
+    "u-today",
+    "cryptobriefing",
+    "binance",
+    "hackernoon",
+    "bitcoinist",
+    "investing-com",
+    "invezz",
+    "cryptowisser",
+    "business-insider",
+    "apnews",
+    "morningstar",
+    "benzinga",
+    "street-insider",
+    "marketwatch",
+    "analytics-insight",
+    "coinjournal",
+    "captain-altcoin",
+    "coinmarketcap"
+   ]
+  },
+  {
+   "id": "platinum",
+   "name": "Platinum",
+   "price": 9500,
+   "publications": "550+ Guaranteed Publications",
+   "includes": [
+    "Editorial Assistance",
+    "SEO Optimization",
+    "1 - 2 Images Included",
+    "Metric Reports"
+   ],
+   "publishers": [
+    "the-block",
+    "decrypt",
+    "news-bitcoin-com",
+    "crypto-news",
+    "hackernoon",
+    "be-in-crypto",
+    "u-today",
+    "investing-com",
+    "invezz",
+    "newsbtc",
+    "bitcoinist",
+    "cryptobriefing",
+    "crypto-wisser",
+    "analytics-insight",
+    "coinmarketcap",
+    "binance",
+    "business-insider",
+    "apnews",
+    "morningstar",
+    "benzinga",
+    "street-insider",
+    "marketwatch"
+   ]
+  },
+  {
+   "id": "diamond",
+   "name": "Diamond",
+   "price": 12500,
+   "publications": "600+ Guaranteed Publications",
+   "includes": [
+    "Editorial Assistance",
+    "SEO Optimization",
+    "1 - 2 Images Included",
+    "Metric Reports"
+   ],
+   "publishers": [
+    "cointelegraph",
+    "news-bitcoin-com",
+    "be-in-crypto",
+    "newsbtc",
+    "invezz",
+    "cryptonews",
+    "u-today",
+    "hackernoon",
+    "investing-com",
+    "benzinga",
+    "bitcoinist",
+    "mpost-io",
+    "crypto-wisser",
+    "analytics-insight",
+    "coinmarketcap",
+    "binance",
+    "business-insider",
+    "apnews",
+    "morningstar",
+    "street-insider",
+    "marketwatch"
+   ]
+  }
+ ],
+ "publishers": [
+  {
+   "id": "business-insider",
+   "name": "Business Insider",
+   "logo": {
+    "src": "/media/outlet-business-insider.webp",
+    "width": 171,
+    "height": 96
+   }
+  },
+  {
+   "id": "apnews",
+   "name": "APNews",
+   "logo": {
+    "src": "/media/outlet-apnews.webp",
+    "width": 137,
+    "height": 96
+   }
+  },
+  {
+   "id": "benzinga",
+   "name": "Benzinga",
+   "logo": {
+    "src": "/media/outlet-benzinga.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "street-insider",
+   "name": "Street Insider",
+   "logo": {
+    "src": "/media/outlet-street-insider.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "marketwatch",
+   "name": "MarketWatch",
+   "logo": {
+    "src": "/media/outlet-marketwatch.webp",
+    "width": 171,
+    "height": 96
+   }
+  },
+  {
+   "id": "live-bitcoin-news",
+   "name": "Live Bitcoin News",
+   "logo": {
+    "src": "/media/outlet-live-bitcoin-news.webp",
+    "width": 85,
+    "height": 96
+   }
+  },
+  {
+   "id": "thenewscrypto",
+   "name": "TheNewsCrypto",
+   "logo": {
+    "src": "/media/outlet-thenewscrypto.webp",
+    "width": 97,
+    "height": 96
+   }
+  },
+  {
+   "id": "binance",
+   "name": "Binance",
+   "logo": {
+    "src": "/media/outlet-binance.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "coinmarketcap",
+   "name": "CoinMarketCap",
+   "logo": {
+    "src": "/media/outlet-coinmarketcap.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "themanillatimes",
+   "name": "TheManillaTimes",
+   "logo": {
+    "src": "/media/outlet-themanillatimes.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "fox8news",
+   "name": "Fox8News",
+   "logo": {
+    "src": "/media/outlet-fox8news.webp",
+    "width": 226,
+    "height": 96
+   }
+  },
+  {
+   "id": "investing-com",
+   "name": "Investing.com",
+   "logo": {
+    "src": "/media/outlet-investing-com.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "the-defiant",
+   "name": "The Defiant",
+   "logo": {
+    "src": "/media/outlet-the-defiant.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "bitcoinist",
+   "name": "Bitcoinist",
+   "logo": {
+    "src": "/media/outlet-bitcoinist.webp",
+    "width": 98,
+    "height": 96
+   }
+  },
+  {
+   "id": "hackernoon",
+   "name": "Hackernoon",
+   "logo": {
+    "src": "/media/outlet-hackernoon.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "blockonomi",
+   "name": "Blockonomi",
+   "logo": {
+    "src": "/media/outlet-blockonomi.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "crypto-wisser",
+   "name": "Crypto Wisser",
+   "logo": {
+    "src": "/media/outlet-crypto-wisser.webp",
+    "width": 81,
+    "height": 96
+   }
+  },
+  {
+   "id": "cryptobriefing",
+   "name": "CryptoBriefing",
+   "logo": {
+    "src": "/media/outlet-cryptobriefing.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "analytics-insight",
+   "name": "Analytics Insight",
+   "logo": {
+    "src": "/media/outlet-analytics-insight.webp",
+    "width": 83,
+    "height": 80
+   }
+  },
+  {
+   "id": "captain-altcoin",
+   "name": "Captain Altcoin",
+   "logo": {
+    "src": "/media/outlet-captain-altcoin.webp",
+    "width": 61,
+    "height": 96
+   }
+  },
+  {
+   "id": "coinjournal",
+   "name": "CoinJournal",
+   "logo": {
+    "src": "/media/outlet-coinjournal.webp",
+    "width": 97,
+    "height": 96
+   }
+  },
+  {
+   "id": "invezz",
+   "name": "Invezz",
+   "logo": {
+    "src": "/media/outlet-invezz.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "coincu",
+   "name": "Coincu",
+   "logo": {
+    "src": "/media/outlet-coincu.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "coinedition",
+   "name": "CoinEdition",
+   "logo": {
+    "src": "/media/outlet-coinedition.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "techbullion",
+   "name": "TechBullion",
+   "logo": {
+    "src": "/media/outlet-techbullion.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "mpost-io",
+   "name": "Mpost.io",
+   "logo": {
+    "src": "/media/outlet-mpost-io.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "news-bitcoin-com",
+   "name": "news.bitcoin.com",
+   "logo": {
+    "src": "/media/outlet-news-bitcoin-com.webp",
+    "width": 83,
+    "height": 96
+   }
+  },
+  {
+   "id": "be-in-crypto",
+   "name": "Be[in]crypto",
+   "logo": {
+    "src": "/media/outlet-be-in-crypto.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "crypto-news",
+   "name": "Crypto.news",
+   "logo": {
+    "src": "/media/outlet-crypto-news.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "u-today",
+   "name": "U.Today",
+   "logo": {
+    "src": "/media/outlet-u-today.webp",
+    "width": 121,
+    "height": 96
+   }
+  },
+  {
+   "id": "cryptowisser",
+   "name": "CryptoWisser",
+   "logo": {
+    "src": "/media/outlet-crypto-wisser.webp",
+    "width": 81,
+    "height": 96
+   }
+  },
+  {
+   "id": "morningstar",
+   "name": "MorningStar",
+   "logo": {
+    "src": "/media/outlet-morningstar.webp",
+    "width": 163,
+    "height": 96
+   }
+  },
+  {
+   "id": "the-block",
+   "name": "The Block",
+   "logo": {
+    "src": "/media/outlet-the-block.webp",
+    "width": 80,
+    "height": 80
+   }
+  },
+  {
+   "id": "decrypt",
+   "name": "Decrypt",
+   "logo": {
+    "src": "/media/outlet-decrypt.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "newsbtc",
+   "name": "NewsBTC",
+   "logo": {
+    "src": "/media/outlet-newsbtc.webp",
+    "width": 96,
+    "height": 96
+   }
+  },
+  {
+   "id": "cointelegraph",
+   "name": "Cointelegraph",
+   "logo": {
+    "src": "/media/outlet-cointelegraph.webp",
+    "width": 117,
+    "height": 96
+   }
+  },
+  {
+   "id": "cryptonews",
+   "name": "CryptoNews",
+   "logo": {
+    "src": "/media/outlet-crypto-news.webp",
+    "width": 96,
+    "height": 96
+   }
+  }
+ ]
+}
