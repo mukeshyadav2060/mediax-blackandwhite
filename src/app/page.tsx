@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
 import Faq from "@/components/Faq";
-import ClientCards from "@/components/ClientCards";
+import QuoteSlider from "@/components/QuoteSlider";
 import Footer from "@/components/Footer";
 import HowSteps from "@/components/HowSteps";
 import { Count, Loader, Reveal, SmoothScroll, Split } from "@/components/Motion";
@@ -63,12 +63,10 @@ export default function Home() {
 
         {/* Trusted by + featured quote */}
         <section id="clients" className="sec mn clients">
-          <div className="wrap cl-split">
-            <div className="cl-left">
-              <p className="lbl-s">Clients</p>
-              <h2 className="display h-m"><Count to={1400} suffix="+" /> crypto and Web3 projects trust MediaX</h2>
-            </div>
-            <ClientCards />
+          <div className="wrap g12">
+            <p className="lbl-s">Clients</p>
+            <h2 className="display h-m mn-title"><Count to={1400} suffix="+" /> crypto and Web3 projects trust MediaX</h2>
+            <div className="mn-body"><QuoteSlider /></div>
           </div>
           <div className="marquee-logos tall">
             <div className="track slow">

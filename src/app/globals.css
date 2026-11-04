@@ -906,3 +906,20 @@ html.loading .fl{filter:blur(8px)}
 .rv-ctrl button:last-child{right:-24px}
 @media(max-width:900px){.rv-ctrl button:first-child{left:6px}.rv-ctrl button:last-child{right:6px}}
 .foot .foot-title,.foot .foot-title .ln{text-align:center;margin-inline:auto}
+
+/* clients: wide single quote that slides to the next */
+.qs-view{overflow:hidden}
+.qs-track{display:flex;transition:transform .9s cubic-bezier(.65,0,.2,1)}
+.qs-slide{flex:0 0 100%;min-width:0;padding-right:4px}
+.qs-slide blockquote{font-size:clamp(1.15rem,1.7vw,1.5rem);line-height:1.5;font-weight:300;letter-spacing:-.015em;max-width:46ch}
+.qs-slide figcaption{margin-top:22px;font-size:14px;opacity:.75}
+.qs-slide figcaption b{font-weight:600;opacity:1}
+.qs-ctrl{display:flex;align-items:center;gap:14px;margin-top:28px}
+.qs-ctrl button{width:44px;height:44px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--ink);font-size:17px;transition:background .3s,color .3s}
+.qs-ctrl button:hover{background:var(--ink);color:var(--paper)}
+.qs-count{font-size:13px;font-weight:600;letter-spacing:.04em;min-width:56px;text-align:center}
+.clients .g12{grid-template-columns:.55fr 1.6fr 2.4fr}
+.clients .qs-slide blockquote{max-width:none;font-size:clamp(1.15rem,1.6vw,1.45rem)}
+@media(max-width:900px){.clients .g12{grid-template-columns:1fr}}
+.clients .g12{grid-template-columns:110px minmax(0,1fr) minmax(0,1.45fr)}
+@media(max-width:900px){.clients .g12{grid-template-columns:1fr}}
