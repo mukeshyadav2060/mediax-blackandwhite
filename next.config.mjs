@@ -1,4 +1,4 @@
-const flat = "about best-crypto-pr-agency blogs case-study contact crypto-press-release drop-press-release faq industry newsroom pricing privacy publications services team terms-condition verify-team".split(" ");
+const flat = "about best-crypto-pr-agency blogs case-study contact crypto-press-release drop-press-release faq industry newsroom pricing privacy publications team terms-condition verify-team".split(" ");
 
 export default {
   reactStrictMode: true,
