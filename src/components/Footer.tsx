@@ -9,7 +9,7 @@ function Roll({ children }: { children: string }) {
 export default function Footer() {
   return (
     <>
-    <footer id="contact" className="foot" data-dark>
+    <footer id="contact" className="foot">
       <div className="wrap">
         <Split as="h2" className="display foot-title" text={"Ready to\nget **featured?**"} />
         <Reveal as="p" className="lead c">Get in touch with our crypto PR team and get your project up and running. We’ll get back to you within 24 hours.</Reveal>
@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="foot-about">
             <div className="hd-logo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/media/mark.svg" alt="" width={40} height={40} /><b>MediaX</b>
+              <img src="/media/logo.png" alt="" width={34} height={34} /><b>MediaX</b>
             </div>
             <p>MediaX is a renowned Crypto Marketing &amp; PR Agency in Blockchain space dedicatedly helping NFT, DeFi, Web3 and Meta Verse projects in PR, Branding and Marketing.</p>
             <p className="addr">MEDIAX AGENCY - FZCO<br />Al Mankhool, Bur Dubai, Dubai<br />Salt Lake, Kolkata India-700091</p>

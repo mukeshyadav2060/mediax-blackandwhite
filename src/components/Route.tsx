@@ -23,7 +23,7 @@ export default function Route({ k }: { k: string }) {
         <SmoothScroll />
         <Header />
         <main>
-          <section className="phero" data-dark>
+          <section className="phero">
             <div className="phero-bg" aria-hidden />
             <div className="wrap">
               <p className="eyebrow">{a.tag} · {a.read}</p>

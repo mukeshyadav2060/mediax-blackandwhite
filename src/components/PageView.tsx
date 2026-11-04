@@ -113,7 +113,7 @@ export default function PageView({ page }: { page: Page }) {
       <SmoothScroll />
       <Header />
       <main>
-        <section className="phero" data-dark>
+        <section className="phero">
           <div className="phero-bg" aria-hidden />
           <div className="wrap">
             <Reveal as="p" className="eyebrow">{page.eyebrow}</Reveal>
@@ -124,7 +124,7 @@ export default function PageView({ page }: { page: Page }) {
         </section>
         {page.secs.map((s, i) => {
           const dk = darkSec(s);
-          return <section key={i} className={`ss ${dk ? "dk" : i % 2 ? "alt" : ""} k-${s.k}`} data-dark={dk || undefined}><div className="wrap"><Block s={s} /></div></section>;
+          return <section key={i} className={`ss ${dk ? "dk" : i % 2 ? "alt" : ""} k-${s.k}`}><div className="wrap"><Block s={s} /></div></section>;
         })}
       </main>
       <Footer />

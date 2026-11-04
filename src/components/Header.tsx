@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { lenisOf } from "./Motion";
 import { footer } from "@/data/content";
 
-const nav = [["Services", "/#services"], ["How it works", "/#how"], ["Pricing", "/#pricing"], ["Clients", "/#clients"], ["Blog", "/#blog"], ["FAQ", "/#faq"], ["Contact", "/#contact"]];
+const nav = [["Services", "/services"], ["Pricing", "/pricing"], ["About", "/about"], ["Case studies", "/case-study"], ["Blog", "/blogs"], ["FAQ", "/faq"], ["Contact", "/contact"]];
 
 function Roll({ children }: { children: string }) {
   return <span className="roll"><span>{children}</span><span aria-hidden>{children}</span></span>;
@@ -42,7 +42,7 @@ export default function Header() {
       <div className="hd-bar">
         <a href="/" className="hd-logo" aria-label="MediaX home" onClick={() => setOpen(false)}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/media/mark.svg" alt="" width={40} height={40} /><b>MediaX</b>
+          <img src="/media/logo.png" alt="" width={34} height={34} /><b>MediaX</b>
         </a>
         <div className="hd-actions">
           <button className="btn glass" aria-expanded={open} onClick={() => setOpen(!open)}>
@@ -55,39 +55,35 @@ export default function Header() {
 
       <section className="menu" aria-hidden={!open}>
         <div className="menu-in">
-          <div className="widgets">
-            <a href="/services" onClick={() => setOpen(false)} className="widget w-big" style={{ backgroundImage: "url(/media/feature-media-relations.webp)" }}>
-              <span className="display">Crypto Press Release</span>
-              <span className="btn glass sm">Discover</span>
-            </a>
-            <a href="/pricing" onClick={() => setOpen(false)} className="widget w-p">
-              <span className="tag">Pricing</span>
-              <span className="display">Packages from $600</span>
-            </a>
-            <a href="/blogs/web3-press-release-framework" onClick={() => setOpen(false)} className="widget w-c">
-              <span className="tag">Latest guide</span>
-              <span className="display">Web3 Press Release Framework</span>
-            </a>
-          </div>
-          <div className="menu-cols">
+          <nav className="menu-main" aria-label="Main">
+            <p className="lbl-s">Menu</p>
+            <ol>
+              {nav.map(([l, h], i) => (
+                <li key={l} style={{ ["--i" as string]: i }}>
+                  <a href={h} onClick={() => setOpen(false)} tabIndex={open ? 0 : -1}>
+                    <span className="mn-n">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="mn-l">{l}</span>
+                    <i aria-hidden />
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+          <div className="menu-side">
             <nav>
-              <p className="eyebrow">Explore</p>
-              {nav.map(([l, h]) => <a key={l} href={h} className="big" onClick={() => setOpen(false)}>{l}</a>)}
+              <p className="lbl-s">PR services</p>
+              {footer.pr.map(([l, h]) => <a key={l} href={h} className="sm" tabIndex={open ? 0 : -1}>{l}</a>)}
             </nav>
             <nav>
-              <p className="eyebrow">PR services</p>
-              {footer.pr.map(([l, h]) => <a key={l} href={h} className="sm">{l}</a>)}
+              <p className="lbl-s">Marketing</p>
+              {footer.marketing.map(([l, h]) => <a key={l} href={h} className="sm" tabIndex={open ? 0 : -1}>{l}</a>)}
             </nav>
             <nav>
-              <p className="eyebrow">Marketing</p>
-              {footer.marketing.map(([l, h]) => <a key={l} href={h} className="sm">{l}</a>)}
-            </nav>
-            <nav>
-              <p className="eyebrow">Get in touch</p>
-              <a className="sm" href="mailto:contact@mediax.agency">contact@mediax.agency</a>
-              <a className="sm" href="https://t.me/MediaxPR">Telegram</a>
-              <a className="sm" href="https://x.com/AgencyMediax">X</a>
-              <a className="sm" href="https://www.linkedin.com/company/mediax-agencyy/">LinkedIn</a>
+              <p className="lbl-s">Get in touch</p>
+              <a className="sm" href="mailto:contact@mediax.agency" tabIndex={open ? 0 : -1}>contact@mediax.agency</a>
+              <a className="sm" href="https://t.me/MediaxPR" tabIndex={open ? 0 : -1}>Telegram</a>
+              <a className="sm" href="https://x.com/AgencyMediax" tabIndex={open ? 0 : -1}>X</a>
+              <a className="sm" href="https://www.linkedin.com/company/mediax-agencyy/" tabIndex={open ? 0 : -1}>LinkedIn</a>
             </nav>
           </div>
         </div>
