@@ -9,7 +9,7 @@ export default function Page() {
     <>
       <SmoothScroll />
       <Header />
-      <main className="submit" data-dark>
+      <main className="submit">
         <div className="wrap submit-in">
           <p className="eyebrow">Submit a press release</p>
           <h1 className="display h-xl">Submit your <strong>press release</strong></h1>

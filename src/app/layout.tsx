@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   title: "Crypto PR & Web3 Press Release Distribution | MediaX",
   description:
     "Boost your crypto brand with MediaX. Guaranteed press release distribution to outlets like Cointelegraph and Yahoo Finance. Trusted by 1,400+ Web3 projects.",
-  icons: { icon: "/media/mark.svg" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
