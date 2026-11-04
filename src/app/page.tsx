@@ -1,13 +1,13 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
-import Reviews from "@/components/Reviews";
 import Faq from "@/components/Faq";
+import ClientCards from "@/components/ClientCards";
 import Footer from "@/components/Footer";
 import HowSteps from "@/components/HowSteps";
 import { Count, Loader, Reveal, SmoothScroll, Split } from "@/components/Motion";
 import data from "@/data/plans.json";
-import { clients, services, steps, testimonials } from "@/data/content";
+import { clients, steps, testimonials } from "@/data/content";
 
 // white-on-transparent client logos: shown on a dark tile so they stay visible
 const DARK_LOGOS = new Set(["1-centralis", "2-xypher", "4-bemine", "16-vameon", "21-rocky-rabbit", "23-vector-space", "11-rwa", "33-logo-icon-22"]);
@@ -17,7 +17,6 @@ const CAL = "https://calendly.com/mediaxagency/30min";
 const Ln = ({ href, children }: { href: string; children: React.ReactNode }) => <a className="ln" href={href}><b>{children}</b><i /></a>;
 
 export default function Home() {
-  const t = testimonials[0];
   return (
     <>
       <Loader />
@@ -25,6 +24,17 @@ export default function Home() {
       <Header />
       <main id="main">
         <Hero />
+
+        {/* Pricing */}
+        <section id="pricing" className="sec mn pricing-sec">
+          <div className="wrap">
+            <div className="mn-head">
+              <Split as="h2" className="display h-m" text={"Choose your package"} />
+              <Reveal as="p" className="sub">Tap a package to see exactly which outlets it covers.</Reveal>
+            </div>
+            <Pricing />
+          </div>
+        </section>
 
         {/* Outlets */}
         <section className="logos">
@@ -41,36 +51,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Expertise */}
-        <section id="services" className="sec mn">
-          <div className="wrap g12">
-            <p className="lbl-s">Expertise</p>
-            <Split as="h2" className="display h-m mn-title" text={"What does MediaX do?"} />
-            <div className="mn-body">
-              <div className="xp">
-                {services.map((s, i) => (
-                  <Reveal className="xp-i" key={s.n} delay={i * 70}>
-                    <h3>{s.tag}</h3>
-                    <p>{s.body}</p>
-                  </Reveal>
-                ))}
-              </div>
-              <Ln href="/services">All services</Ln>
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing */}
-        <section id="pricing" className="sec mn pricing-sec">
-          <div className="wrap">
-            <div className="mn-head">
-              <Split as="h2" className="display h-m" text={"Choose your package"} />
-              <Reveal as="p" className="sub">Tap a package to see exactly which outlets it covers.</Reveal>
-            </div>
-            <Pricing />
-          </div>
-        </section>
-
         {/* How it works */}
         <section id="how" className="sec mn">
           <div className="wrap">
@@ -83,13 +63,12 @@ export default function Home() {
 
         {/* Trusted by + featured quote */}
         <section id="clients" className="sec mn clients">
-          <div className="wrap g12">
-            <p className="lbl-s">Clients</p>
-            <h2 className="display h-m mn-title"><Count to={1400} suffix="+" /> crypto and Web3 projects trust MediaX</h2>
-            <div className="mn-body">
-              <Reveal as="blockquote" className="feat-q">“{t.quote.replace(/^“|”$/g, "")}”</Reveal>
-              <Reveal as="p" className="feat-by"><b>{t.name}</b> — {t.role}</Reveal>
+          <div className="wrap cl-split">
+            <div className="cl-left">
+              <p className="lbl-s">Clients</p>
+              <h2 className="display h-m"><Count to={1400} suffix="+" /> crypto and Web3 projects trust MediaX</h2>
             </div>
+            <ClientCards />
           </div>
           <div className="marquee-logos tall">
             <div className="track slow">
@@ -101,17 +80,6 @@ export default function Home() {
               )))}
             </div>
           </div>
-        </section>
-
-        {/* What our clients say */}
-        <section id="reviews" className="sec mn reviews-sec">
-          <div className="wrap">
-            <div className="mn-head">
-              <Split as="h2" className="display h-m" text={"What our clients say"} />
-              <Reveal as="p" className="sub">Real results for Web3, DeFi, NFT and blockchain projects.</Reveal>
-            </div>
-          </div>
-          <Reviews />
         </section>
 
         {/* FAQ */}

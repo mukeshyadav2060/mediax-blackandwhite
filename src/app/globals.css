@@ -859,3 +859,50 @@ html.loading .fl{filter:blur(8px)}
   .btn.big{padding:15px 28px;font-size:16px}
 }
 .submit .eyebrow,.phero .eyebrow{margin-bottom:14px}
+.menu-in{grid-template-columns:1fr;max-width:900px;margin:0 auto}
+/* tighter gap between "Compare every package" and the outlet strip (-80%) */
+.pricing-sec{padding-bottom:clamp(14px,1.8vw,28px)}
+.pricing-sec+.logos{padding-top:clamp(8px,1vw,14px)}
+@media(max-width:760px){.pricing-sec{padding-bottom:14px}}
+
+/* client quotes: auto-scrolling cards, right to left */
+.rv-mq{margin-top:clamp(32px,4vw,56px)}
+.rv-track{gap:12px;animation-duration:80s;align-items:stretch}
+.rv-track .review{flex:0 0 min(440px,82vw);user-select:none}
+.reviews-sec{display:none}
+
+/* clients: heading left, cards in the right half only (~2.5 visible) */
+.cl-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,64px);align-items:start}
+.cl-left{display:flex;flex-direction:column;gap:clamp(14px,2vw,28px)}
+.cl-split .rv-mq{margin-top:0;container-type:inline-size;min-width:0}
+.cl-split .rv-track .review{flex:0 0 calc((100cqw - 24px)/2.5);padding:20px;gap:22px;border-radius:6px}
+.cl-split .review p{font-size:.95rem;line-height:1.5}
+.cl-split .review img{width:40px;height:40px}
+.cl-split .review b{font-size:14px}.cl-split .review span{font-size:12px}
+.cl-split .rv-track{gap:12px}
+@media(max-width:900px){
+  .cl-split{grid-template-columns:1fr}
+  .cl-split .rv-track .review{flex:0 0 78cqw}
+}
+
+/* testimonial rail with arrows */
+.cl-split .rv-mq{overflow:visible}
+.rv-rail{display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;cursor:grab;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);touch-action:pan-y}
+.rv-rail::-webkit-scrollbar{display:none}
+.rv-rail:active{cursor:grabbing}
+.cl-split .rv-rail .review{flex:0 0 calc((100cqw - 24px)/2.5);user-select:none}
+.rv-ctrl{display:flex;gap:10px;margin-top:20px}
+.rv-ctrl button{width:48px;height:48px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--ink);font-size:18px;transition:background .3s,color .3s}
+.rv-ctrl button:hover{background:var(--ink);color:var(--paper)}
+@media(max-width:900px){.cl-split .rv-rail .review{flex:0 0 78cqw}}
+/* arrows sit on the left/right edges, vertically centred on the cards */
+.cl-split .rv-mq{position:relative}
+.rv-ctrl{display:contents}
+.rv-ctrl button{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:var(--paper);box-shadow:inset 0 0 0 1px var(--ink),0 6px 18px -8px #26211e66}
+.rv-ctrl button:first-child{left:10px}
+.rv-ctrl button:last-child{right:10px}
+.rv-ctrl button:hover{background:var(--ink);color:var(--paper)}
+.rv-ctrl button:first-child{left:-24px}
+.rv-ctrl button:last-child{right:-24px}
+@media(max-width:900px){.rv-ctrl button:first-child{left:6px}.rv-ctrl button:last-child{right:6px}}
+.foot .foot-title,.foot .foot-title .ln{text-align:center;margin-inline:auto}

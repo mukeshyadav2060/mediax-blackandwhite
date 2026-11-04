@@ -1,9 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { lenisOf } from "./Motion";
-import { footer } from "@/data/content";
 
-const nav = [["Services", "/services"], ["Pricing", "/pricing"], ["About", "/about"], ["Case studies", "/case-study"], ["Blog", "/blogs"], ["FAQ", "/faq"], ["Contact", "/contact"]];
+const nav = [["Pricing", "/pricing"], ["About", "/about"], ["Case studies", "/case-study"], ["Blog", "/blogs"], ["FAQ", "/faq"], ["Contact", "/contact"]];
 
 function Roll({ children }: { children: string }) {
   return <span className="roll"><span>{children}</span><span aria-hidden>{children}</span></span>;
@@ -69,23 +68,6 @@ export default function Header() {
               ))}
             </ol>
           </nav>
-          <div className="menu-side">
-            <nav>
-              <p className="lbl-s">PR services</p>
-              {footer.pr.map(([l, h]) => <a key={l} href={h} className="sm" tabIndex={open ? 0 : -1}>{l}</a>)}
-            </nav>
-            <nav>
-              <p className="lbl-s">Marketing</p>
-              {footer.marketing.map(([l, h]) => <a key={l} href={h} className="sm" tabIndex={open ? 0 : -1}>{l}</a>)}
-            </nav>
-            <nav>
-              <p className="lbl-s">Get in touch</p>
-              <a className="sm" href="mailto:contact@mediax.agency" tabIndex={open ? 0 : -1}>contact@mediax.agency</a>
-              <a className="sm" href="https://t.me/MediaxPR" tabIndex={open ? 0 : -1}>Telegram</a>
-              <a className="sm" href="https://x.com/AgencyMediax" tabIndex={open ? 0 : -1}>X</a>
-              <a className="sm" href="https://www.linkedin.com/company/mediax-agencyy/" tabIndex={open ? 0 : -1}>LinkedIn</a>
-            </nav>
-          </div>
         </div>
       </section>
     </header>

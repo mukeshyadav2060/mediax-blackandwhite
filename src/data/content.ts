@@ -58,7 +58,7 @@ export const clients = [
 ];
 
 export const footer = {
-  company: [["About","/about"],["Services","/services"],["Team","/team"],["Case studies","/case-study"],["Publications","/publications"],["Blogs","/blogs"],["Newsroom","/newsroom"],["Verify team","/verify-team"]],
+  company: [["About","/about"],["Team","/team"],["Case studies","/case-study"],["Publications","/publications"],["Blogs","/blogs"],["Newsroom","/newsroom"],["Verify team","/verify-team"]],
   getStarted: [["Pricing","/pricing"],["Submit a press release","/submit-press-release"],["Drop a press release","/drop-press-release"],["Crypto press release","/crypto-press-release"],["Best crypto PR agency","/best-crypto-pr-agency"],["Industry","/industry"],["FAQ","/faq"]],
   pr: [["Crypto Exchange PR","/pr/crypto-exchange-pr"],["Crypto Press Release","/pr/crypto-press-release"],["DeFi Press Release","/pr/de-fi-press-release"],["Fintech PR","/pr/fintech-pr"],["Web3 Press Release","/pr/web3-press-release"]],
   marketing: [["Crypto Influencer Marketing","/mk/crypto-influencer-marketing"],["Crypto Link Building","/mk/crypto-link-building"],["Press Release Distributions","/mk/press-release-distributions"],["Twitter Influencers","/mk/twitter-influencers"],["YouTube Influencers for Crypto","/mk/you-tube-influencers-for-crypto"]],
@@ -67,9 +67,9 @@ export const footer = {
 
 export const works = [
   { title: "Crypto Press Release", href: "/crypto-press-release", tag: "Distribution", img: "feature-crypto-press-release" },
-  { title: "Media Relations", href: "/services", tag: "Outreach", img: "feature-media-relations" },
-  { title: "Branding & Communications", href: "/services", tag: "Messaging", img: "feature-branding-and-communications" },
-  { title: "Organic Coverage", href: "/services", tag: "Earned media", img: "feature-organic-coverage" },
+  { title: "Media Relations", href: "/pricing", tag: "Outreach", img: "feature-media-relations" },
+  { title: "Branding & Communications", href: "/pricing", tag: "Messaging", img: "feature-branding-and-communications" },
+  { title: "Organic Coverage", href: "/pricing", tag: "Earned media", img: "feature-organic-coverage" },
   { title: "Token Launches", href: "/pr/crypto-press-release", tag: "Use case", img: "step-step-3-get-published-instantly" },
   { title: "Funding Announcements", href: "/pr/web3-press-release", tag: "Use case", img: "step-step-2-submit-your-press-release" },
   { title: "Rebrands", href: "/pr/web3-press-release", tag: "Use case", img: "step-step-1-choose-your-package" },

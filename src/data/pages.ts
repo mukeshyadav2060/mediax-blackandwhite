@@ -87,28 +87,6 @@ export const pages: Record<string, Page> = {
       ] },
       { k: "quotes" },
     ] },
-  services: { eyebrow: "Services", title: "Everything your project needs to be **seen**", lead: "Crypto press release distribution, media relations, branding and organic coverage — from one team.", cta: SUBMIT,
-    secs: [
-      { k: "cards", title: "Core services", items: [
-        { t: "Crypto press release", b: "Distribution on top-tier crypto and mainstream media.", href: "/crypto-press-release" },
-        { t: "Media relations", b: "Introductions and pitching to the editors who cover your sector.", href: "/best-crypto-pr-agency" },
-        { t: "Branding & communications", b: "Messaging, narrative and tone for launches, rebrands and crises.", href: "/about" },
-        { t: "Organic coverage", b: "Earned articles and features that compound over time.", href: "/publications" },
-      ] },
-      { k: "cards", title: "PR services", dark: true, items: [
-        { t: "Crypto exchange PR", b: "Listings, markets and product news.", href: "/pr/crypto-exchange-pr" },
-        { t: "DeFi press release", b: "Protocol launches and upgrades.", href: "/pr/de-fi-press-release" },
-        { t: "Fintech PR", b: "Bridging crypto and traditional finance.", href: "/pr/fintech-pr" },
-        { t: "Web3 press release", b: "Milestones for builders and backers.", href: "/pr/web3-press-release" },
-      ] },
-      { k: "cards", title: "Marketing services", items: [
-        { t: "Influencer marketing", b: "Vetted KOLs and creators.", href: "/mk/crypto-influencer-marketing" },
-        { t: "Link building", b: "Editorial backlinks that lift SEO.", href: "/mk/crypto-link-building" },
-        { t: "Twitter influencers", b: "Reach crypto Twitter.", href: "/mk/twitter-influencers" },
-        { t: "YouTube influencers", b: "Long-form crypto reviews.", href: "/mk/you-tube-influencers-for-crypto" },
-      ] },
-      { k: "steps" },
-    ] },
   team: { eyebrow: "Team", title: "The people behind your **coverage**", lead: "A small, senior team of PR strategists, editors and media relations specialists working across Dubai, Kolkata and beyond.", cta: [["Book a call", "https://calendly.com/mediaxagency/30min"], ["Verify a team member", "/verify-team"]],
     secs: [
       { k: "cards", title: "Who you’ll work with", items: [
