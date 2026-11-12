@@ -923,3 +923,75 @@ html.loading .fl{filter:blur(8px)}
 @media(max-width:900px){.clients .g12{grid-template-columns:1fr}}
 .clients .g12{grid-template-columns:110px minmax(0,1fr) minmax(0,1.45fr)}
 @media(max-width:900px){.clients .g12{grid-template-columns:1fr}}
+
+/* =========================  pricing v3: interactive  ========================= */
+.pk-steps{position:relative;display:grid;grid-template-columns:repeat(var(--n),1fr);margin-bottom:clamp(20px,3vw,36px)}
+.pk-rail{position:absolute;left:calc(50%/var(--n));right:calc(50%/var(--n));top:11px;height:1px;background:#26211e33}
+.pk-rail i{position:absolute;inset:0;background:var(--ink);transform-origin:left;transition:transform .8s cubic-bezier(.65,0,.2,1)}
+.pk-s{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:0 4px 4px;text-align:center;cursor:pointer;color:#26211e8c;transition:color .4s}
+.pk-s:hover,.pk-s.done{color:var(--ink)}
+.pk-dot{position:relative;width:23px;height:23px;display:grid;place-items:center;margin-bottom:10px}
+.pk-dot::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 1px var(--ink);transition:transform .5s var(--out),background .4s}
+.pk-s.done .pk-dot::before{background:var(--ink)}
+.pk-s.on .pk-dot::before{background:var(--ink);transform:scale(1.5)}
+.pk-dot::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 0 1px var(--ink);opacity:0;transform:scale(.4);transition:opacity .4s,transform .6s var(--out)}
+.pk-s.on .pk-dot::after{opacity:1;transform:none}
+.pk-s:hover .pk-dot::before{transform:scale(1.35)}
+.pk-s.on:hover .pk-dot::before{transform:scale(1.5)}
+.pk-name{font-size:clamp(.95rem,1.4vw,1.15rem);font-weight:300;letter-spacing:-.02em;transition:font-weight .3s}
+.pk-s.on .pk-name{font-weight:500}
+.pk-price{font-size:12.5px;letter-spacing:.02em;opacity:.75}
+.pk-s:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:6px}
+
+.pk-card{position:relative;overflow:hidden;isolation:isolate}
+.pk-glow{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .5s;background:radial-gradient(340px circle at var(--sx,50%) var(--sy,30%),#fff 0%,#ffffff00 70%)}
+.pk-card:hover .pk-glow{opacity:.9}
+.pk-body{display:flex;flex-direction:column;align-items:center;width:100%}
+.pk-body.from-r{animation:pkR .75s cubic-bezier(.22,1,.36,1) both}
+.pk-body.from-l{animation:pkL .75s cubic-bezier(.22,1,.36,1) both}
+@keyframes pkR{from{opacity:0;transform:translateX(56px)}}
+@keyframes pkL{from{opacity:0;transform:translateX(-56px)}}
+
+/* odometer price */
+.price{display:flex;justify-content:center;align-items:baseline;font-variant-numeric:tabular-nums}
+.odo{display:inline-flex;align-items:baseline}
+.odo-d{display:inline-block;height:1em;overflow:hidden;line-height:1}
+.odo-s{display:flex;flex-direction:column;transition:transform .9s cubic-bezier(.65,0,.2,1)}
+.odo-s i{display:block;height:1em;font-style:normal;line-height:1}
+.odo-c{display:inline-block;line-height:1;height:1em}
+
+/* meters */
+.pk-meters{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,3vw,40px);width:100%;max-width:680px;margin:6px 0 22px;text-align:left}
+.pk-m{display:flex;flex-direction:column;gap:2px;padding-top:12px;border-top:1px solid var(--rule)}
+.pk-mv{font-size:clamp(1.5rem,2.6vw,2.2rem);font-weight:300;letter-spacing:-.04em;line-height:1.1;font-variant-numeric:tabular-nums}
+.pk-ml{font-size:12.5px;opacity:.7}
+.pk-m em{display:block;height:3px;margin-top:10px;background:#26211e1f;border-radius:2px;overflow:hidden}
+.pk-m em i{display:block;height:100%;background:var(--ink);transform-origin:left;transition:transform .9s cubic-bezier(.65,0,.2,1)}
+.pk-card .chips{margin:4px 0 24px}
+
+/* outlet tiles flip in, label on hover */
+.flip-in{animation:tileflip .6s cubic-bezier(.22,1,.36,1) both;transform-origin:50% 0;position:relative;transition:transform .35s var(--out),box-shadow .3s}
+@keyframes tileflip{from{opacity:0;transform:perspective(500px) rotateX(-80deg) translateY(-8px)}}
+.pk-card .outlet-grid .tile:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px var(--ink)}
+.pk-card .outlet-grid .tile::after{content:attr(data-n);position:absolute;left:50%;bottom:calc(100% + 8px);transform:translate(-50%,4px);background:var(--ink);color:var(--paper);font-size:11.5px;font-weight:500;white-space:nowrap;padding:5px 9px;border-radius:5px;opacity:0;pointer-events:none;transition:opacity .2s,transform .25s var(--out);z-index:4}
+.pk-card .outlet-grid .tile:hover::after{opacity:1;transform:translate(-50%,0)}
+.pk-card{overflow:visible}
+.pk-glow{border-radius:inherit;overflow:hidden}
+@media(max-width:760px){
+  .pk-name{font-size:.85rem}.pk-price{font-size:10.5px}
+  .pk-meters{grid-template-columns:1fr 1fr 1fr;gap:10px}.pk-mv{font-size:1.15rem}.pk-ml{font-size:10.5px}
+  .pk-rail{top:11px}
+}
+@media(prefers-reduced-motion:reduce){.pk-body,.flip-in{animation:none}.odo-s,.pk-rail i,.pk-m em i{transition:none}}
+
+/* ---------- type consistency pass: one family (Inter), one label style, one heading voice ---------- */
+:root{--disp:var(--font-inter),Inter,sans-serif;--inter:var(--font-inter),Inter,sans-serif}
+.eyebrow-pill{text-transform:none;letter-spacing:0;font-size:14px;font-weight:600}
+.form-card .legend,.contact-side li span{text-transform:none;letter-spacing:0;font-size:14px;font-weight:600;opacity:1}
+.contact-side li span{opacity:.6;font-weight:500}
+.pre{font-weight:300;letter-spacing:-.035em}
+h1,h2,h3,.display{font-family:var(--inter)}
+h3,.xp-i h3,.how-i h3,.ci h3{font-weight:300;letter-spacing:-.03em}
+.q button,.faq .q button span{font-weight:400}
+button,input,textarea,select{font-family:inherit}
+.pk-s.on{color:var(--ink)}.pk-s.on .pk-price{opacity:1}
