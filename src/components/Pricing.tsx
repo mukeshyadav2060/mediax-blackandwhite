@@ -1,12 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import data from "@/data/plans.json";
+import { packages } from "@/data/packages";
 
 const fmt = (n: number) => "$" + n.toLocaleString("en-US");
-const num = (s: string) => parseInt(s, 10) || 0;
-const MAX_PUBS = Math.max(...data.plans.map((p) => num(p.publications)));
-const MAX_OUT = Math.max(...data.plans.map((p) => p.publishers.length));
-
 /* eased number tween so figures count up/down when the plan changes */
 function useTween(target: number, ms = 700) {
   const [v, setV] = useState(target);
@@ -46,82 +42,78 @@ function Odo({ value }: { value: number }) {
 }
 
 export default function Pricing() {
-  const [idx, setIdx] = useState(2);
+  const [idx, setIdx] = useState(2); // start on the popular plan
   const [dir, setDir] = useState(1);
-  const plan = data.plans[idx];
+  const plan = packages[idx];
   const card = useRef<HTMLDivElement>(null);
-  const pubs = plan.publishers
-    .map((pid) => data.publishers.find((p) => p.id === pid))
-    .filter((p): p is (typeof data.publishers)[number] => !!p);
 
   const pick = (i: number) => { if (i === idx) return; setDir(i > idx ? 1 : -1); setIdx(i); };
   const onKey = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowRight") { e.preventDefault(); pick(Math.min(idx + 1, data.plans.length - 1)); }
+    if (e.key === "ArrowRight") { e.preventDefault(); pick(Math.min(idx + 1, packages.length - 1)); }
     if (e.key === "ArrowLeft") { e.preventDefault(); pick(Math.max(idx - 1, 0)); }
   };
 
-  const pubN = useTween(num(plan.publications));
-  const outN = useTween(plan.publishers.length);
+  const n1 = useTween(plan.stats[0].n);
+  const n2 = useTween(plan.stats[1].n);
   const spot = (e: React.PointerEvent) => {
     const r = card.current!.getBoundingClientRect();
     card.current!.style.setProperty("--sx", `${e.clientX - r.left}px`);
     card.current!.style.setProperty("--sy", `${e.clientY - r.top}px`);
   };
 
+  const group = (label: string, list: string[], dim = false) => (
+    <div className={dim ? "pk2-grp dim" : "pk2-grp"}>
+      <p className="pk2-lab"><span>{label} · {list.length}</span><i /></p>
+      <p className="pk2-names">
+        {list.map((n, i) => (
+          <span key={n} style={{ animationDelay: `${i * 30}ms` }}>{n}<b aria-hidden>•</b></span>
+        ))}
+      </p>
+    </div>
+  );
+
   return (
-    <div className="pricing pk">
-      {/* stepper: dots on a hairline, the line fills up to the chosen plan */}
-      <div className="pk-steps" role="tablist" aria-label="Packages" onKeyDown={onKey} style={{ ["--n" as string]: data.plans.length, ["--i" as string]: idx }}>
-        <div className="pk-rail" aria-hidden><i style={{ transform: `scaleX(${idx / (data.plans.length - 1)})` }} /></div>
-        {data.plans.map((p, i) => (
-          <button key={p.id} role="tab" aria-selected={i === idx} tabIndex={i === idx ? 0 : -1} className={i === idx ? "pk-s on" : i < idx ? "pk-s done" : "pk-s"} onClick={() => pick(i)}>
-            <span className="pk-dot" aria-hidden />
-            <span className="pk-name">{p.name}</span>
-            <span className="pk-price">{fmt(p.price)}</span>
+    <div className="pricing pk2">
+      <div className="pk2-tabs" role="tablist" aria-label="Packages" onKeyDown={onKey} style={{ ["--n" as string]: packages.length, ["--i" as string]: idx }}>
+        <i className="pk2-pill" aria-hidden />
+        {packages.map((p, i) => (
+          <button key={p.id} role="tab" aria-selected={i === idx} tabIndex={i === idx ? 0 : -1} className={i === idx ? "pk2-t on" : "pk2-t"} onClick={() => pick(i)}>
+            <span>{p.name}</span><b>{fmt(p.price)}</b>
           </button>
         ))}
       </div>
 
-      <div className="plan pk-card" ref={card} onPointerMove={spot}>
-        <div className="pk-glow" aria-hidden />
-        <div className={dir > 0 ? "pk-body from-r" : "pk-body from-l"} key={plan.id}>
-          <p className="eyebrow">{plan.name} package</p>
-          <p className="price"><Odo value={plan.price} /></p>
+      <div className="pk2-card" ref={card} onPointerMove={spot}>
+        <div className="pk2-glow" aria-hidden />
+        <div className={dir > 0 ? "pk2-in from-r" : "pk2-in from-l"} key={plan.id}>
+          <div className="pk2-l">
+            <p className="pk2-eye">{plan.name} package{plan.badge ? ` · ${plan.badge}` : ""}</p>
+            <p className="pk2-price">{plan.was && <s>{fmt(plan.was)}</s>}<Odo value={plan.price} /></p>
+            <p className="pk2-sub">{plan.tagline}</p>
 
-          <div className="pk-meters">
-            <div className="pk-m">
-              <span className="pk-mv">{Math.round(pubN)}+</span>
-              <span className="pk-ml">Guaranteed publications</span>
-              <em><i style={{ transform: `scaleX(${num(plan.publications) / MAX_PUBS})` }} /></em>
+            <div className="pk2-stats">
+              <div><b>{Math.round(n1)}{plan.stats[0].suf}</b><span>{plan.stats[0].l}</span></div>
+              <div><b>{Math.round(n2)}{plan.stats[1].suf}</b><span>{plan.stats[1].l}</span></div>
+              <div><b>Same-day</b><span>distribution</span></div>
             </div>
-            <div className="pk-m">
-              <span className="pk-mv">{Math.round(outN)}</span>
-              <span className="pk-ml">Featured outlets</span>
-              <em><i style={{ transform: `scaleX(${plan.publishers.length / MAX_OUT})` }} /></em>
-            </div>
-            <div className="pk-m">
-              <span className="pk-mv">24–48h</span>
-              <span className="pk-ml">Live after approval</span>
-              <em><i style={{ transform: "scaleX(1)" }} /></em>
-            </div>
+
+            <ul className="pk2-list">
+              {plan.highlights.map((i) => (
+                <li key={i}>
+                  <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden><path d="M2.5 7.5l3 3 6-6.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>{i}
+                </li>
+              ))}
+            </ul>
+
+            <a className="pk2-cta" href={`/submit-press-release?package=${plan.id}`}>Choose {plan.name}</a>
+            <a className="pk2-alt" href="https://calendly.com/mediaxagency/30min">Or ask about bulk pricing</a>
           </div>
 
-          <ul className="chips">
-            {plan.includes.map((i) => <li key={i}>{i}</li>)}
-          </ul>
-          <div className="btn-row">
-            <a className="btn purple" href={`/submit-press-release?package=${plan.id}`}>Choose {plan.name}</a>
-            <a className="btn white" href="https://calendly.com/mediaxagency/30min">Custom quote</a>
-          </div>
-
-          <p className="eyebrow outs">Featured outlets in {plan.name}</p>
-          <div className="outlet-grid">
-            {pubs.map((p, i) => (
-              <div className="tile flip-in" data-n={p.name} style={{ animationDelay: `${i * 28}ms` }} key={p.id}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.logo.src} alt={p.name} width={p.logo.width} height={p.logo.height} loading="lazy" />
-              </div>
-            ))}
+          <div className="pk2-r">
+            {group("Distribution", plan.distribution)}
+            {plan.top && group("Top outlets", plan.top, true)}
+            {group("Included", plan.extras, true)}
+            <p className="pk2-note">Global distribution, with translation included, is an optional add-on for every plan.</p>
           </div>
         </div>
       </div>

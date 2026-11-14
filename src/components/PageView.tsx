@@ -6,6 +6,7 @@ import ContactForm from "./ContactForm";
 import VerifyForm from "./VerifyForm";
 import { Reveal, SmoothScroll, Split } from "./Motion";
 import data from "@/data/plans.json";
+import { compareRows, packages } from "@/data/packages";
 import { posts, resourceTags, steps, testimonials } from "@/data/content";
 import type { Page, Sec } from "@/data/pages";
 
@@ -13,21 +14,12 @@ const fmt = (n: number) => "$" + n.toLocaleString("en-US");
 const A = ({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) => <a href={href} className={className}>{children}</a>;
 
 function Compare() {
-  const rows: [string, (p: (typeof data.plans)[number]) => string][] = [
-    ["Price", (p) => fmt(p.price)],
-    ["Guaranteed publications", (p) => p.publications.replace(" Guaranteed Publications", "")],
-    ["Featured outlets", (p) => String(p.publishers.length)],
-    ["Editorial assistance", () => "✓"],
-    ["SEO optimisation", () => "✓"],
-    ["Images included", () => "1–2"],
-    ["Metric report", () => "✓"],
-  ];
   return (
     <div className="cmp-wrap">
       <table className="cmp">
-        <thead><tr><th />{data.plans.map((p) => <th key={p.id}>{p.name}</th>)}</tr></thead>
-        <tbody>{rows.map(([l, f]) => <tr key={l}><th>{l}</th>{data.plans.map((p) => <td key={p.id}>{f(p)}</td>)}</tr>)}</tbody>
-        <tfoot><tr><th />{data.plans.map((p) => <td key={p.id}><A className="btn purple sm" href={`/submit-press-release?package=${p.id}`}>Choose</A></td>)}</tr></tfoot>
+        <thead><tr><th />{packages.map((p) => <th key={p.id}>{p.name}</th>)}</tr></thead>
+        <tbody>{compareRows.map(([l, vals]) => <tr key={l}><th>{l}</th>{vals.map((v, i) => <td key={i}>{v}</td>)}</tr>)}</tbody>
+        <tfoot><tr><th />{packages.map((p) => <td key={p.id}><A className="btn purple sm" href={`/submit-press-release?package=${p.id}`}>Choose</A></td>)}</tr></tfoot>
       </table>
     </div>
   );

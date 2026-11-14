@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 import Select from "./Select";
-import data from "@/data/plans.json";
+import { packages } from "@/data/packages";
 
 const fmt = (n: number) => `$${n.toLocaleString("en-US")}`;
-const opts = data.plans.map((p) => ({ value: p.id, label: p.name, hint: fmt(p.price) }));
+const opts = packages.map((p) => ({ value: p.id, label: p.name, hint: fmt(p.price) }));
 const countries = ["United States", "United Kingdom", "United Arab Emirates", "Singapore", "Switzerland", "Germany", "India", "Canada", "Australia", "Other"].map((c) => ({ value: c, label: c }));
 
 const Field = ({ label, name, type = "text", area, hint, req = true }: { label: string; name: string; type?: string; area?: boolean; hint?: string; req?: boolean }) => (
@@ -25,7 +25,7 @@ export default function SubmitForm() {
     if (p && opts.some((o) => o.value === p)) setPkg(p);
   }, []);
 
-  const plan = data.plans.find((p) => p.id === pkg)!;
+  const plan = packages.find((p) => p.id === pkg)!;
 
   if (sent) return (
     <div className="form-card done">
@@ -51,8 +51,8 @@ export default function SubmitForm() {
       <fieldset><p className="legend">Your package</p>
         <div className="span2"><Select label="Package" name="package" options={opts} value={pkg} onChange={setPkg} /></div>
         <div className="span2 pkg-sum" key={pkg}>
-          <b>{plan.publications}</b>
-          <span>{plan.includes.join(" · ")}</span>
+          <b>{plan.tagline}</b>
+          <span>{plan.highlights.join(" · ")}</span>
           <strong className="display">{fmt(plan.price)}</strong>
         </div>
         <div className="span2"><Field label="Message" name="message" area req={false} /></div>

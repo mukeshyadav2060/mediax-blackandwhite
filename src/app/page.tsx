@@ -6,7 +6,6 @@ import QuoteSlider from "@/components/QuoteSlider";
 import Footer from "@/components/Footer";
 import HowSteps from "@/components/HowSteps";
 import { Count, Loader, Reveal, SmoothScroll, Split } from "@/components/Motion";
-import data from "@/data/plans.json";
 import { clients, steps, testimonials } from "@/data/content";
 
 // white-on-transparent client logos: shown on a dark tile so they stay visible
@@ -28,26 +27,11 @@ export default function Home() {
         {/* Pricing */}
         <section id="pricing" className="sec mn pricing-sec">
           <div className="wrap">
-            <div className="mn-head">
+            <div className="pk2-head">
               <Split as="h2" className="display h-m" text={"Choose your package"} />
               <Reveal as="p" className="sub">Tap a package to see exactly which outlets it covers.</Reveal>
             </div>
             <Pricing />
-          </div>
-        </section>
-
-        {/* Outlets */}
-        <section className="logos">
-          <p className="lbl-s center">Published on the outlets your audience reads</p>
-          <div className="marquee-logos">
-            <div className="track">
-              {[0, 1].map((k) => data.publishers.map((p) => (
-                <div className="tile" key={`${k}-${p.id}`}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={p.logo.src} alt={k ? "" : p.name} width={p.logo.width} height={p.logo.height} />
-                </div>
-              )))}
-            </div>
           </div>
         </section>
 

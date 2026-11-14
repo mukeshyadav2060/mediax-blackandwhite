@@ -41,7 +41,7 @@ export const faqs = [
   ["What is a crypto press release?", "A crypto press release is a short news-style article that announces something important about your Web3 or blockchain project. It is published across trusted crypto media sites to increase visibility and credibility."],
   ["How does MediaX work?", "Choose a plan, submit your press release or let us write it for you, and we will distribute it through our crypto PR distribution network. After it is live, we will send you a report with all placements and metrics."],
   ["Where will my press release be published?", "Depending on your package, it will appear on sites like Coin Edition, NewsBTC, The Block, Yahoo Finance, and multiple others. View our media list."],
-  ["How much does a crypto press release cost?", "Our Lite plan starts at $600. All plans include guaranteed placements. You can also request a custom quote."],
+  ["How much does a crypto press release cost?", "Our Lite plan starts at $1,399. All plans include guaranteed published articles. Ask us about bulk pricing or a custom quote."],
   ["When will my press release go live?", "Our releases go live within 24 to 48 hours after approval. Express publishing is available if it is required on an expedited basis."],
   ["Do you guarantee media placements?", "Yes. All packages include guaranteed crypto press release distribution. We only work with verified media outlets."],
   ["Can I choose specific media outlets?", "Yes. You can select from our outlet list or let us recommend the best ones based on your goals including DeFi, NFT, AI, and more."],
