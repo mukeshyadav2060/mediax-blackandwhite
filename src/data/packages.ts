@@ -8,6 +8,9 @@ export type Pkg = {
   top?: string[];        // outlets named in the plan graphic
   extras: string[];
   highlights: string[];
+  best: string;                                   // "Best for…" line
+  outlets: { name: string; tag: "Crypto" | "Finance"; logo?: string }[]; // sample of where it is published
+  outletCount: string;
 };
 
 const base = ["Same-day distribution", "Editorial suggestions", "Customer support", "SEO adjustments"];
@@ -20,6 +23,9 @@ export const packages: Pkg[] = [
     distribution: ["Distribution to 8 crypto news outlets", "Featured on the homepage of all news outlets", "Same-day distribution"],
     extras: ["Editorial suggestions", "Customer support", "SEO adjustments", "Up to 1 image", "Up to 1 embedded video", globalUp, "Google News logo"],
     highlights: base,
+    best: "Best for first announcements and project updates.",
+    outlets: [{ name: "The Defiant", tag: "Crypto", logo: "/media/outlet-the-defiant.webp" }, { name: "Investing.com", tag: "Finance", logo: "/media/outlet-investing-com.webp" }, { name: "Hackernoon", tag: "Crypto", logo: "/media/outlet-hackernoon.webp" }],
+    outletCount: "8 crypto outlets",
   },
   {
     id: "standard", name: "Standard", price: 2499, was: 2799, tagline: "20 guaranteed published articles",
@@ -27,6 +33,9 @@ export const packages: Pkg[] = [
     distribution: ["Distribution to 20 crypto news outlets", "Featured on the homepage of all news outlets", "Same-day distribution"],
     extras: ["Editorial suggestions", "Customer support", "SEO adjustments", "Up to 2 images", "Up to 1 embedded video", globalUp, "Google News logo"],
     highlights: base,
+    best: "Best for launches, listings and partnerships.",
+    outlets: [{ name: "Be[in]crypto", tag: "Crypto", logo: "/media/outlet-be-in-crypto.webp" }, { name: "Crypto.news", tag: "Crypto", logo: "/media/outlet-crypto-news.webp" }, { name: "U.Today", tag: "Crypto", logo: "/media/outlet-u-today.webp" }, { name: "CryptoBriefing", tag: "Crypto", logo: "/media/outlet-cryptobriefing.webp" }],
+    outletCount: "20 crypto outlets",
   },
   {
     id: "premium", name: "Premium", price: 6499, was: 7699, badge: "Popular", tagline: "75 guaranteed top crypto articles · 500+ mainstream articles",
@@ -35,6 +44,9 @@ export const packages: Pkg[] = [
     top: ["Decrypt", "Investing.com", "CoinMarketCap"],
     extras: ["Editorial suggestions", "Customer support", "SEO adjustments", "Up to 2 images", "Up to 1 embedded video", globalUp, "Google News logo"],
     highlights: base,
+    best: "Best for funding rounds and major launches.",
+    outlets: [{ name: "Decrypt", tag: "Crypto", logo: "/media/outlet-decrypt.webp" }, { name: "CoinMarketCap", tag: "Crypto", logo: "/media/outlet-coinmarketcap.webp" }, { name: "Investing.com", tag: "Finance", logo: "/media/outlet-investing-com.webp" }],
+    outletCount: "75+ crypto outlets",
   },
   {
     id: "gold", name: "Gold", price: 10799, was: 17799, badge: "Best value", tagline: "100+ guaranteed top crypto articles · 500+ mainstream articles",
@@ -43,6 +55,9 @@ export const packages: Pkg[] = [
     top: ["The Block", "Be[in]Crypto", "Bitcoin.com", "Decrypt", "Investing.com", "CoinMarketCap"],
     extras: ["Editorial suggestions", "Customer support", "SEO adjustments", "Up to 2 images", "Up to 1 embedded video", globalUp, "Google News logo"],
     highlights: base,
+    best: "Best for flagship news that needs maximum reach.",
+    outlets: [{ name: "The Block", tag: "Crypto", logo: "/media/outlet-the-block.webp" }, { name: "Investing.com", tag: "Finance", logo: "/media/outlet-investing-com.webp" }, { name: "Bitcoin.com", tag: "Crypto", logo: "/media/outlet-news-bitcoin-com.webp" }],
+    outletCount: "100+ crypto outlets",
   },
 ];
 
