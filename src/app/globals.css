@@ -1149,3 +1149,41 @@ button,input,textarea,select{font-family:inherit}
 .pk3-card:hover .pk3-was em{background:#faf6f3;color:var(--ink)}
 .pk3-card:hover .pk3-cta{background:var(--paper);color:var(--ink)}
 .pk3-card:hover{transform:translateY(-8px);box-shadow:0 2px 0 #26211e18,0 40px 70px -32px #26211e99}
+
+/* ---------- mobile hardening: no sideways overflow, equal gutters, swipeable rate cards ---------- */
+html,body{max-width:100%;overflow-x:clip}
+.g12>*,.mn-body,.qs,.qs-view,.cl-left{min-width:0}
+@media(max-width:900px){
+  .g12,.clients .g12{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:640px){
+  .pk3-grid{display:flex;gap:12px;overflow-x:auto;overflow-y:visible;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-inline:calc(var(--gut)*-1);padding:14px var(--gut) 28px;scroll-padding-inline:var(--gut);align-items:stretch}
+  .pk3-grid::-webkit-scrollbar{display:none}
+  .pk3-card{flex:0 0 min(84%,340px);scroll-snap-align:start}
+  .pk3-card:hover{transform:none}
+}
+/* mobile: keep the 3D laptop inside its own box so it never rides over the section above */
+@media(max-width:900px){
+  .how-lr{gap:0}
+  .how-lr .lap-stage{height:calc(430px*var(--k) + 120px);margin-bottom:8px;overflow:hidden}
+  .how-lr .lap-scene{top:64%;transform:translateY(calc(0px + 70px*var(--orb)*var(--k))) scale(var(--k)) rotateX(58deg) rotateZ(calc(-62deg + 24deg*var(--orb)))}
+}
+@media(max-width:900px){.how-lr .lap-stage{height:calc(430px*var(--k) + 170px)}}
+
+/* comparison table on phones: label column stays put while the plans scroll */
+@media(max-width:700px){
+  .cmp{min-width:600px}
+  .cmp tbody th,.cmp thead th:first-child,.cmp tfoot th{position:sticky;left:0;z-index:2;width:112px;min-width:112px;font-size:13px;padding:12px 10px;background:var(--soft)}
+  .alt .cmp tbody th{background:var(--paper)}
+  .cmp td,.cmp thead th{padding:12px 8px;font-size:13px}
+}
+
+/* ---------- frosted glass nav bar: content slides behind the logo + menu ---------- */
+.hd.hide:not(.open){transform:none}            /* keep the bar in place so content always passes behind it */
+.hd-bar{isolation:isolate}
+.hd-bar::before{content:"";position:absolute;z-index:-1;left:0;right:0;top:0;bottom:-26px;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(250,246,243,.88) 0%,rgba(250,246,243,.7) 55%,rgba(250,246,243,0) 100%);
+  -webkit-backdrop-filter:blur(16px) saturate(1.25);backdrop-filter:blur(16px) saturate(1.25);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 62%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 62%,transparent 100%);
+  transition:opacity .35s}
+.hd.open .hd-bar::before{opacity:0}

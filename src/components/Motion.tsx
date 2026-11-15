@@ -38,16 +38,21 @@ export function Split({ text, as = "h2", className = "", delay = 0 }: { text: st
   let k = 0;
   const lines = text.split("\n").map((line, li) => {
     const out: React.ReactNode[] = [];
-    line.split(/(\*\*[^*]+\*\*)/).forEach((seg, si) => {
+    const segs = line.split(/(\*\*[^*]+\*\*)/);
+    segs.forEach((seg, si) => {
       const strong = seg.startsWith("**");
-      const words = (strong ? seg.slice(2, -2) : seg).split(" ").filter(Boolean);
+      const text = strong ? seg.slice(2, -2) : seg;
+      const words = text.split(" ").filter(Boolean);
+      // no gap before punctuation that hugs the previous segment ("**pricing**, …")
+      const next = segs[si + 1];
+      const glue = !!next && !/^\s/.test(next) && !/\s$/.test(text) && !next.startsWith("**");
       words.forEach((w, wi) => {
         const inner = (
           <span className="w">
             <span className="i" style={{ transitionDelay: `${delay + k++ * 55}ms` }}>{w}</span>
           </span>
         );
-        out.push(<span key={`${li}-${si}-${wi}`}>{strong ? <strong>{inner}</strong> : inner}{" "}</span>);
+        out.push(<span key={`${li}-${si}-${wi}`}>{strong ? <strong>{inner}</strong> : inner}{glue && wi === words.length - 1 ? "" : " "}</span>);
       });
     });
     return <span className="ln" key={li}>{out}</span>;
