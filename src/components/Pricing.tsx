@@ -2,9 +2,24 @@
 import { packages } from "@/data/packages";
 
 const fmt = (n: number) => "$" + n.toLocaleString("en-US");
+const FEATS: { t: string; d: string; icon: React.ReactNode }[] = [
+  { t: "Guaranteed placement", d: "On every outlet in your package.", icon: <path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3zM9 12l2 2 4-4" /> },
+  { t: "Editorial suggestions", d: "Help shaping your release.", icon: <path d="M5 5h14v10H10l-4 4v-4H5V5z" /> },
+  { t: "Same-day distribution", d: "Live within hours, not weeks.", icon: <><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></> },
+  { t: "Global upgrade", d: "Optional translation and reach.", icon: <><circle cx="12" cy="12" r="8.5" /><path d="M3.5 12h17M12 3.5c2.5 2.4 3.7 5.3 3.7 8.5S14.500 18.100 12 20.500C9.500 18.100 8.300 15.200 8.300 12S9.500 5.900 12 3.500z" /></> },
+];
+
 export default function Pricing() {
   return (
     <div className="pricing pk3">
+      <ul className="pk3-feats">
+        {FEATS.map((f) => (
+          <li key={f.t}>
+            <span className="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>{f.icon}</svg></span>
+            <div><b>{f.t}</b><span>{f.d}</span></div>
+          </li>
+        ))}
+      </ul>
       <div className="pk3-grid">
         {packages.map((p, i) => {
           return (
@@ -16,15 +31,17 @@ export default function Pricing() {
                 </div>
                 <p className="pk3-best">{p.best}</p>
 
-                <p className="pk3-was">{p.was && <><s>{fmt(p.was)}</s><em>Save {fmt(p.was - p.price)}</em></>}</p>
-                <p className="pk3-price">{fmt(p.price)}</p>
-                <p className="pk3-per">One-off payment per release</p>
+                <p className="pk3-price">
+                  <sup>$</sup>{p.price.toLocaleString("en-US")}
+                  {p.was && <s>{fmt(p.was)}</s>}
+                </p>
+                <p className="pk3-per">One-off payment per release{p.was ? ` · Save ${fmt(p.was - p.price)}` : ""}</p>
 
-                <div className="pk3-stats">
-                  <div><b>{p.stats[0].n}{p.stats[0].suf}</b><span>{p.stats[0].l}</span></div>
-                  <div><b>{p.stats[1].l.startsWith("mainstream") ? `${p.stats[1].n}${p.stats[1].suf}` : "—"}</b><span>mainstream articles</span></div>
-                  <div><b>Same day</b><span>distribution</span></div>
-                </div>
+                <dl className="pk3-rows">
+                  <div><dt>{p.stats[0].n}{p.stats[0].suf}</dt><dd>{p.stats[0].l}</dd></div>
+                  <div><dt>{p.stats[1].l.startsWith("mainstream") ? `${p.stats[1].n}${p.stats[1].suf}` : "—"}</dt><dd>mainstream articles</dd></div>
+                  <div><dt>Same day</dt><dd>distribution</dd></div>
+                </dl>
 
                 <a className="pk3-cta" href={`/submit-press-release?package=${p.id}`}>Get started with {p.name}<span aria-hidden>→</span></a>
               </div>
