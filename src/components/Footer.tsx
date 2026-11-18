@@ -20,9 +20,9 @@ export default function Footer() {
 
         <div className="foot-grid">
           <div className="foot-about">
-            <div className="hd-logo">
+            <div className="hd-logo" aria-label="MediaX" role="img">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/media/logo.png" alt="" width={34} height={34} /><b>MediaX</b>
+              <img src="/media/logo.png" alt="" width={36} height={36} /><b aria-hidden>ediaX</b>
             </div>
             <p>MediaX is a renowned Crypto Marketing &amp; PR Agency in Blockchain space dedicatedly helping NFT, DeFi, Web3 and Meta Verse projects in PR, Branding and Marketing.</p>
             <p className="addr">MEDIAX AGENCY - FZCO<br />Al Mankhool, Bur Dubai, Dubai<br />Salt Lake, Kolkata India-700091</p>

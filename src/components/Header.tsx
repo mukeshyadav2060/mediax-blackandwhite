@@ -41,7 +41,7 @@ export default function Header() {
       <div className="hd-bar">
         <a href="/" className="hd-logo" aria-label="MediaX home" onClick={() => setOpen(false)}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/media/logo.png" alt="" width={34} height={34} /><b>MediaX</b>
+          <img src="/media/logo.png" alt="" width={36} height={36} /><b aria-hidden>ediaX</b>
         </a>
         <div className="hd-actions">
           <button className="btn glass" aria-expanded={open} onClick={() => setOpen(!open)}>

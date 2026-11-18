@@ -13,7 +13,7 @@ const DARK_LOGOS = new Set(["1-centralis", "2-xypher", "4-bemine", "16-vameon", 
 const CAL = "https://calendly.com/mediaxagency/30min";
 
 /* "View the work ————•" style link */
-const Ln = ({ href, children }: { href: string; children: React.ReactNode }) => <a className="ln" href={href}><b>{children}</b><i /></a>;
+const Ln = ({ href, children }: { href: string; children: React.ReactNode }) => <a className="lnk" href={href}><b>{children}</b><i /></a>;
 
 export default function Home() {
   return (
