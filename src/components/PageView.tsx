@@ -4,6 +4,7 @@ import Faq from "./Faq";
 import Pricing from "./Pricing";
 import ContactForm from "./ContactForm";
 import VerifyForm from "./VerifyForm";
+import Feed from "./Feed";
 import { Reveal, SmoothScroll, Split } from "./Motion";
 import data from "@/data/plans.json";
 import { compareRows, packages } from "@/data/packages";
@@ -87,6 +88,7 @@ function Block({ s }: { s: Sec }) {
     </>);
     case "pricing": return <div className="dkpad"><Pricing /></div>;
     case "compare": return (<><Split as="h2" className="display h-m" text={"Compare **every package**"} /><Compare /></>);
+    case "feed": return <Feed />;
     case "contact": return <ContactForm />;
     case "verify": return <VerifyForm />;
     case "posts": return (

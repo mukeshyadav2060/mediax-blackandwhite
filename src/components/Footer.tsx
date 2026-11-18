@@ -28,12 +28,12 @@ export default function Footer() {
             <p className="addr">MEDIAX AGENCY - FZCO<br />Al Mankhool, Bur Dubai, Dubai<br />Salt Lake, Kolkata India-700091</p>
           </div>
           {([["Company", footer.company], ["Get started", footer.getStarted], ["PR services", footer.pr], ["Marketing services", footer.marketing], ["Sectors", footer.sectors]] as const).map(([t, ls]) => (
-            <div key={t}>
+            <div key={t} className="fcol">
               <h4 className="eyebrow">{t}</h4>
               <ul>{ls.map(([l, h]) => <li key={l}><a href={h}>{l}</a></li>)}</ul>
             </div>
           ))}
-          <div>
+          <div className="fcol keep">
             <h4 className="eyebrow">Get in touch</h4>
             <ul>
               <li><a href="/contact">Contact us</a></li>

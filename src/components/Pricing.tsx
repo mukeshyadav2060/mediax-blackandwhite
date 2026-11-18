@@ -35,7 +35,7 @@ export default function Pricing() {
                   <sup>$</sup>{p.price.toLocaleString("en-US")}
                   {p.was && <s>{fmt(p.was)}</s>}
                 </p>
-                <p className="pk3-per">One-off payment per release{p.was ? ` · Save ${fmt(p.was - p.price)}` : ""}</p>
+                <p className="pk3-per">One-off payment per release<span className={p.was ? "sv" : "sv none"}>{p.was ? `Save ${fmt(p.was - p.price)}` : ""}</span></p>
 
                 <dl className="pk3-rows">
                   <div><dt>{p.stats[0].n}{p.stats[0].suf}</dt><dd>{p.stats[0].l}</dd></div>

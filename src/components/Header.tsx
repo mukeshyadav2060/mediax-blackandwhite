@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { lenisOf } from "./Motion";
 
-const nav = [["Pricing", "/pricing"], ["About", "/about"], ["Case studies", "/case-study"], ["Blog", "/blogs"], ["FAQ", "/faq"], ["Contact", "/contact"]];
+const nav = [["Pricing", "/pricing"], ["About", "/about"], ["Feed", "/feed"], ["Blog", "/blogs"], ["FAQ", "/faq"], ["Contact", "/contact"]];
 
 function Roll({ children }: { children: string }) {
   return <span className="roll"><span>{children}</span><span aria-hidden>{children}</span></span>;

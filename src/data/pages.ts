@@ -4,7 +4,7 @@ export type Sec =
   | { k: "rows"; title: string; items: Item[] }
   | { k: "stats"; items: [string, string][] }
   | { k: "text"; title?: string; paras: string[] }
-  | { k: "steps" | "quotes" | "outlets" | "faq" | "pricing" | "compare" | "contact" | "verify" | "posts" | "publishers" };
+  | { k: "feed" | "steps" | "quotes" | "outlets" | "faq" | "pricing" | "compare" | "contact" | "verify" | "posts" | "publishers" };
 
 export type Page = { eyebrow: string; title: string; lead: string; cta?: [string, string][]; secs: Sec[] };
 
@@ -99,8 +99,8 @@ export const pages: Record<string, Page> = {
       ] },
       { k: "text", title: "Staying safe", paras: ["Scammers impersonate crypto agencies. Our team only contacts you from @mediax.agency email addresses and the official Telegram account @MediaxPR. Not sure? Use the verification page."] },
     ] },
-  "case-study": { eyebrow: "Case studies", title: "Results our **clients** talk about", lead: "From exchanges to infrastructure networks — what teams say after working with MediaX.", cta: SUBMIT,
-    secs: [{ k: "quotes" }, { k: "stats", items: [["1,400+", "Projects"], ["550+", "Placements on Gold"], ["24–48h", "To go live"]] }, { k: "outlets" }] },
+  feed: { eyebrow: "Feed", title: "Fresh from the **network**", lead: "Client stories, guides and the outlets we publish on — one running feed of how crypto and Web3 teams get featured.", cta: [["Submit your release", "/submit-press-release"], ["See pricing", "/pricing"]],
+    secs: [{ k: "feed" }] },
   publications: { eyebrow: "Publications", title: "Our media **network**", lead: "Crypto-native and mainstream publishers we distribute to. Which outlets you get depends on your package.", cta: [["Compare packages", "/pricing"], ["Submit your release", "/submit-press-release"]],
     secs: [{ k: "publishers" }] },
   blogs: { eyebrow: "Blog", title: "Guides for **crypto PR**", lead: "Practical playbooks on press releases, KOL marketing and Web3 content.", secs: [{ k: "posts" }] },
