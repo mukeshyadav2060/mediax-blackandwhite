@@ -75,7 +75,6 @@ export const pages: Record<string, Page> = {
     secs: [{ k: "pricing" }, { k: "compare" }, { k: "faq" }] },
   about: { eyebrow: "About MediaX", title: "The crypto PR agency for **Web3**", lead: "MediaX is a crypto marketing and PR agency helping NFT, DeFi, Web3 and Metaverse projects with press, branding and marketing — from Dubai to Kolkata.", cta: SUBMIT,
     secs: [
-      { k: "stats", items: [["1,400+", "Web3 projects served"], ["500+", "Guaranteed publications per package"], ["24–48h", "Typical time to go live"], ["37", "Publishers in our network"]] },
       { k: "text", title: "Our story", paras: [
         "Crypto teams told us the same thing: great products, no coverage. Real newsrooms were hard to reach and ‘guaranteed’ PR rarely was.",
         "MediaX was built to fix that — a distribution network of crypto-native and mainstream outlets, editors who understand the space, and pricing you can read before you buy.",
@@ -107,7 +106,7 @@ export const pages: Record<string, Page> = {
   newsroom: { eyebrow: "Newsroom", title: "MediaX **newsroom**", lead: "Company updates, resources and press contact.", cta: [["Press enquiries", "/contact"]],
     secs: [{ k: "posts" }, { k: "text", title: "Press contact", paras: ["For interviews, partnerships or media requests, email contact@mediax.agency or message @MediaxPR on Telegram."] }] },
   "verify-team": { eyebrow: "Verify team", title: "Is this really **MediaX**?", lead: "Check an email address or Telegram handle before you reply, pay or share anything.", secs: [{ k: "verify" }] },
-  contact: { eyebrow: "Contact", title: "Let’s get you **featured**", lead: "Tell us about your project. We’ll reply within 24 hours.", secs: [{ k: "contact" }] },
+  contact: { eyebrow: "Contact", title: "Let’s get you **featured**", lead: "Tell us about your project. We’ll reply within 24 hours.", secs: [{ k: "faq" }] },  // the form lives in the contact hero
   faq: { eyebrow: "FAQ", title: "Questions, **answered**", lead: "Everything about pricing, publishing times and how crypto press releases work.", cta: [["Book a call", "https://calendly.com/mediaxagency/30min"]], secs: [{ k: "faq" }] },
   industry: { eyebrow: "Industry", title: "PR for every corner of **Web3**", lead: "Pick your sector — we’ll show how we position projects like yours.", cta: SUBMIT,
     secs: [{ k: "cards", title: "Sectors", items: [
@@ -123,7 +122,7 @@ export const pages: Record<string, Page> = {
   "crypto-press-release": { eyebrow: "Crypto press release", title: "Crypto press release **distribution**", lead: "Trusted distribution on top-tier crypto and mainstream media for token launches, funding, listings and rebrands.", cta: SUBMIT,
     secs: [{ k: "cards", title: "Why MediaX", items: why }, { k: "outlets" }, { k: "pricing" }, { k: "quotes" }, { k: "faq" }] },
   "best-crypto-pr-agency": { eyebrow: "Crypto PR agency", title: "The best crypto PR **agency** for Web3", lead: "1,400+ projects have trusted MediaX for guaranteed placements, fast turnaround and transparent pricing.", cta: SUBMIT,
-    secs: [{ k: "stats", items: [["1,400+", "Projects"], ["500+", "Publications per package"], ["24–48h", "To go live"], ["$600", "Starting price"]] }, { k: "cards", title: "What sets us apart", dark: true, items: why }, { k: "quotes" }, { k: "faq" }] },
+    secs: [{ k: "cards", title: "What sets us apart", dark: true, items: why }, { k: "quotes" }, { k: "faq" }] },
   privacy: { eyebrow: "Legal", title: "Privacy **policy**", lead: "How MediaX collects, uses and protects your information.",
     secs: [{ k: "text", paras: [
       "Information we collect. When you submit a press release or contact us we collect your name, email address, Telegram ID, company and press release content so we can deliver our service.",

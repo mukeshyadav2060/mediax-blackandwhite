@@ -6,10 +6,17 @@ import ContactForm from "./ContactForm";
 import VerifyForm from "./VerifyForm";
 import Feed from "./Feed";
 import { Reveal, SmoothScroll, Split } from "./Motion";
+import PageHero, { type HeroAside } from "./PageHero";
+import { AboutHero, BlogHero, ContactHero, PricingHero, PublicationsHero } from "./PageHeroes";
+
+/* pages with a hero of their own; the rest share <PageHero> */
+const HEROES: Record<string, (p: { page: Page }) => React.ReactNode> = {
+  pricing: PricingHero, publications: PublicationsHero, about: AboutHero, contact: ContactHero, blogs: BlogHero,
+};
 import data from "@/data/plans.json";
 import { compareRows, packages } from "@/data/packages";
 import { posts, resourceTags, steps, testimonials } from "@/data/content";
-import type { Page, Sec } from "@/data/pages";
+import { articles, type Page, type Sec } from "@/data/pages";
 
 const fmt = (n: number) => "$" + n.toLocaleString("en-US");
 const A = ({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) => <a href={href} className={className}>{children}</a>;
@@ -93,7 +100,7 @@ function Block({ s }: { s: Sec }) {
     case "verify": return <VerifyForm />;
     case "posts": return (
       <div className="posts">{posts.map((p, i) => (
-        <Reveal key={p.title} delay={i * 80}><A className="post" href={p.href}><span className="tag">{resourceTags[i]}</span><h3 className="display">{p.title}</h3><span className="go">↗</span></A></Reveal>
+        <Reveal key={p.title} delay={i * 80}><A className="post" href={p.href}><span className="tag">{articles[p.href.split("/").pop()!]?.tag ?? resourceTags[i]}</span><h3 className="display">{p.title}</h3><span className="go">↗</span></A></Reveal>
       ))}</div>
     );
   }
@@ -101,21 +108,22 @@ function Block({ s }: { s: Sec }) {
 
 const darkSec = (s: Sec) => (s.k === "cards" && s.dark) || s.k === "pricing";
 
-export default function PageView({ page }: { page: Page }) {
+/* which visual sits beside each inner page's headline */
+function asideFor(k: string): HeroAside {
+  if (k === "pricing") return "pricing";
+  if (["about", "team", "best-crypto-pr-agency", "newsroom"].includes(k)) return "stats";
+  if (["faq", "verify-team"].includes(k)) return "contact"; // /contact already has these channels beside its form
+  if (["privacy", "terms-condition"].includes(k)) return "none";
+  return "outlets"; // service, sector, publication and resource pages
+}
+
+export default function PageView({ page, k = "" }: { page: Page; k?: string }) {
   return (
     <>
       <SmoothScroll />
       <Header />
       <main>
-        <section className="phero">
-          <div className="phero-bg" aria-hidden />
-          <div className="wrap">
-            <Reveal as="p" className="eyebrow">{page.eyebrow}</Reveal>
-            <Split as="h1" className="display h-xl" text={page.title} />
-            <Reveal as="p" className="lead">{page.lead}</Reveal>
-            {page.cta && <Reveal className="btn-row">{page.cta.map(([l, h], i) => <A key={l} href={h} className={i ? "btn glass" : "btn white"}>{l}</A>)}</Reveal>}
-          </div>
-        </section>
+        {HEROES[k] ? HEROES[k]({ page }) : <PageHero eyebrow={page.eyebrow} title={page.title} lead={page.lead} cta={page.cta} aside={asideFor(k)} />}
         {page.secs.map((s, i) => {
           const dk = darkSec(s);
           return <section key={i} id={s.k} className={`ss ${dk ? "dk" : i % 2 ? "alt" : ""} k-${s.k}`}><div className="wrap"><Block s={s} /></div></section>;

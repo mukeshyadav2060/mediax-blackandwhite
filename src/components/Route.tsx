@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import PageView from "./PageView";
+import PageHero from "./PageHero";
 import Header from "./Header";
 import Footer from "./Footer";
 import { SmoothScroll } from "./Motion";
@@ -23,13 +24,7 @@ export default function Route({ k }: { k: string }) {
         <SmoothScroll />
         <Header />
         <main>
-          <section className="phero">
-            <div className="phero-bg" aria-hidden />
-            <div className="wrap">
-              <p className="eyebrow">{a.tag} · {a.read}</p>
-              <h1 className="display h-l">{a.title}</h1>
-            </div>
-          </section>
+          <PageHero eyebrow={a.tag} title={a.title} lead={a.read} crumbs={[["Home", "/"], ["Blog", "/blogs"]]} />
           <section className="ss"><div className="wrap">
             <article className="prose art">
               {a.body.map((b, i) => <div key={i}>{b.h && <h2>{b.h}</h2>}<p>{b.p}</p></div>)}
@@ -47,5 +42,5 @@ export default function Route({ k }: { k: string }) {
   }
   const page = pages[k] ?? landings[k];
   if (!page) notFound();
-  return <PageView page={page} />;
+  return <PageView page={page} k={k} />;
 }

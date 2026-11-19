@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
 
-export default function ContactForm() {
+/* formOnly: just the form card (the contact page hero lists the channels itself) */
+export default function ContactForm({ formOnly = false }: { formOnly?: boolean }) {
   const [sent, setSent] = useState(false);
   if (sent) return <div className="form-card done"><h2 className="display h-l">Message sent.</h2><p>Thanks — our team will reply within 24 hours.</p><a className="btn purple" href="/">Back to home</a></div>;
-  return (
-    <div className="contact-grid">
+  const form = (
       <form className="form-card" onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
         <fieldset>
           <label className="fld"><span className="lbl">Full name</span><input name="name" required /></label>
@@ -16,6 +16,11 @@ export default function ContactForm() {
         </fieldset>
         <button className="btn purple big" type="submit">Send message</button>
       </form>
+  );
+  if (formOnly) return form;
+  return (
+    <div className="contact-grid">
+      {form}
       <aside className="contact-side">
         <h3 className="display">Prefer to talk?</h3>
         <a className="btn white" href="https://calendly.com/mediaxagency/30min">Book a 30-min call</a>
