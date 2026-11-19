@@ -118,7 +118,7 @@ export default function PageView({ page }: { page: Page }) {
         </section>
         {page.secs.map((s, i) => {
           const dk = darkSec(s);
-          return <section key={i} className={`ss ${dk ? "dk" : i % 2 ? "alt" : ""} k-${s.k}`}><div className="wrap"><Block s={s} /></div></section>;
+          return <section key={i} id={s.k} className={`ss ${dk ? "dk" : i % 2 ? "alt" : ""} k-${s.k}`}><div className="wrap"><Block s={s} /></div></section>;
         })}
       </main>
       <Footer />

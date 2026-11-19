@@ -102,13 +102,13 @@ export default function Hero() {
       {/* ---- centre: copy ---- */}
       <div className="core">
         <p className="eyebrow-pill">Crypto press release distribution</p>
-        <p className="pre display-i">Get featured. Make</p>
+        <h1 className="pre display-i">Get featured in top-tier crypto media.</h1>
         <p className="hero-sub2">
-          Trusted press release distribution on top-tier crypto &amp; mainstream media for Web3, DeFi and blockchain projects. Live in 24–48 hours.
+          Guaranteed press release distribution across leading crypto and mainstream outlets for Web3, DeFi and blockchain projects. Packages from $600, live in 24–48 hours.
         </p>
         <div className="hero-cta">
           <a className="btn ink" href="/submit-press-release">Get started</a>
-          <a className="btn glass dark" href="/pricing">How it works</a>
+          <a className="btn glass dark" href="#how">How it works</a>
         </div>
       </div>
     </section>

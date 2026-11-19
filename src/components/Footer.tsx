@@ -24,7 +24,7 @@ export default function Footer() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/media/logo.png" alt="" width={36} height={36} /><b aria-hidden>ediaX</b>
             </div>
-            <p>MediaX is a renowned Crypto Marketing &amp; PR Agency in Blockchain space dedicatedly helping NFT, DeFi, Web3 and Meta Verse projects in PR, Branding and Marketing.</p>
+            <p>MediaX is a crypto PR and marketing agency that has helped 1,400+ Web3, DeFi, NFT and metaverse projects get featured in the media their users and investors read.</p>
             <p className="addr">MEDIAX AGENCY - FZCO<br />Al Mankhool, Bur Dubai, Dubai<br />Salt Lake, Kolkata India-700091</p>
           </div>
           {([["Company", footer.company], ["Get started", footer.getStarted], ["PR services", footer.pr], ["Marketing services", footer.marketing], ["Sectors", footer.sectors]] as const).map(([t, ls]) => (

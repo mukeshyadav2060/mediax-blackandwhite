@@ -12,7 +12,7 @@ const SUBMIT: [string, string][] = [["Submit your release", "/submit-press-relea
 
 const why: Item[] = [
   { t: "Crypto-native newsrooms", b: "Placements on the outlets Web3 readers, traders and investors actually follow." },
-  { t: "Mainstream credibility", b: "Syndication to Yahoo Finance, AP News and Business Insider for reach beyond crypto." },
+  { t: "Mainstream credibility", b: "Syndication to Business Insider, AP News and MarketWatch for reach beyond crypto." },
   { t: "Guaranteed placements", b: "Every package guarantees a minimum number of live publications, in writing." },
   { t: "Metric reports", b: "Coverage, estimated views, audience and engagements delivered after every campaign." },
 ];
@@ -71,7 +71,7 @@ export const landings: Record<string, Page> = {
 
 /* -------- standalone pages -------- */
 export const pages: Record<string, Page> = {
-  pricing: { eyebrow: "Pricing", title: "Simple **pricing**, guaranteed placements", lead: "Four packages from $1,399. Every plan includes same-day distribution, editorial suggestions, customer support and SEO adjustments.", cta: [["Submit your release", "/submit-press-release"], ["Custom quote", "/contact"]],
+  pricing: { eyebrow: "Pricing", title: "Simple **pricing**, guaranteed placements", lead: "Five packages from $600. Every plan includes guaranteed publications, editorial assistance, SEO optimization and a metric report, live within 24–48 hours.", cta: [["Submit your release", "/submit-press-release"], ["Custom quote", "/contact"]],
     secs: [{ k: "pricing" }, { k: "compare" }, { k: "faq" }] },
   about: { eyebrow: "About MediaX", title: "The crypto PR agency for **Web3**", lead: "MediaX is a crypto marketing and PR agency helping NFT, DeFi, Web3 and Metaverse projects with press, branding and marketing — from Dubai to Kolkata.", cta: SUBMIT,
     secs: [
@@ -123,7 +123,7 @@ export const pages: Record<string, Page> = {
   "crypto-press-release": { eyebrow: "Crypto press release", title: "Crypto press release **distribution**", lead: "Trusted distribution on top-tier crypto and mainstream media for token launches, funding, listings and rebrands.", cta: SUBMIT,
     secs: [{ k: "cards", title: "Why MediaX", items: why }, { k: "outlets" }, { k: "pricing" }, { k: "quotes" }, { k: "faq" }] },
   "best-crypto-pr-agency": { eyebrow: "Crypto PR agency", title: "The best crypto PR **agency** for Web3", lead: "1,400+ projects have trusted MediaX for guaranteed placements, fast turnaround and transparent pricing.", cta: SUBMIT,
-    secs: [{ k: "stats", items: [["1,400+", "Projects"], ["500+", "Publications per package"], ["24–48h", "To go live"], ["$1,399", "Starting price"]] }, { k: "cards", title: "What sets us apart", dark: true, items: why }, { k: "quotes" }, { k: "faq" }] },
+    secs: [{ k: "stats", items: [["1,400+", "Projects"], ["500+", "Publications per package"], ["24–48h", "To go live"], ["$600", "Starting price"]] }, { k: "cards", title: "What sets us apart", dark: true, items: why }, { k: "quotes" }, { k: "faq" }] },
   privacy: { eyebrow: "Legal", title: "Privacy **policy**", lead: "How MediaX collects, uses and protects your information.",
     secs: [{ k: "text", paras: [
       "Information we collect. When you submit a press release or contact us we collect your name, email address, Telegram ID, company and press release content so we can deliver our service.",

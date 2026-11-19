@@ -4,12 +4,13 @@ import { packages } from "@/data/packages";
 const fmt = (n: number) => "$" + n.toLocaleString("en-US");
 const FEATS: { t: string; d: string; icon: React.ReactNode }[] = [
   { t: "Guaranteed placement", d: "On every outlet in your package.", icon: <path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3zM9 12l2 2 4-4" /> },
-  { t: "Editorial suggestions", d: "Help shaping your release.", icon: <path d="M5 5h14v10H10l-4 4v-4H5V5z" /> },
-  { t: "Same-day distribution", d: "Live within hours, not weeks.", icon: <><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></> },
-  { t: "Global upgrade", d: "Optional translation and reach.", icon: <><circle cx="12" cy="12" r="8.5" /><path d="M3.5 12h17M12 3.5c2.5 2.4 3.7 5.3 3.7 8.5S14.500 18.100 12 20.500C9.500 18.100 8.300 15.200 8.300 12S9.500 5.900 12 3.500z" /></> },
+  { t: "Editorial assistance", d: "Our editors polish your release.", icon: <path d="M5 5h14v10H10l-4 4v-4H5V5z" /> },
+  { t: "Live in 24–48 hours", d: "From approval to publication.", icon: <><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></> },
+  { t: "Metric reports", d: "Live links, reach and audience.", icon: <path d="M4 20h16M7 16v-4M12 16V7M17 16v-6" /> },
 ];
 
-export default function Pricing() {
+/* the grid is designed for four cards; the full line-up is on /pricing */
+export default function Pricing({ limit = 4 }: { limit?: number }) {
   return (
     <div className="pricing pk3">
       <ul className="pk3-feats">
@@ -21,7 +22,7 @@ export default function Pricing() {
         ))}
       </ul>
       <div className="pk3-grid">
-        {packages.map((p, i) => {
+        {packages.slice(0, limit).map((p, i) => {
           return (
             <article className="pk3-card" key={p.id} style={{ ["--d" as string]: `${i * 90}ms` }}>
               <div className="pk3-top">
@@ -39,8 +40,8 @@ export default function Pricing() {
 
                 <dl className="pk3-rows">
                   <div><dt>{p.stats[0].n}{p.stats[0].suf}</dt><dd>{p.stats[0].l}</dd></div>
-                  <div><dt>{p.stats[1].l.startsWith("mainstream") ? `${p.stats[1].n}${p.stats[1].suf}` : "—"}</dt><dd>mainstream articles</dd></div>
-                  <div><dt>Same day</dt><dd>distribution</dd></div>
+                  <div><dt>{p.stats[1].n}{p.stats[1].suf}</dt><dd>{p.stats[1].l}</dd></div>
+                  <div><dt>24–48h</dt><dd>to go live</dd></div>
                 </dl>
 
                 <a className="pk3-cta" href={`/submit-press-release?package=${p.id}`}>Get started with {p.name}<span aria-hidden>→</span></a>
@@ -65,7 +66,7 @@ export default function Pricing() {
           );
         })}
       </div>
-      <div className="compare"><a className="btn glass" href="/pricing">Compare every package</a></div>
+      <div className="compare"><a className="btn glass" href="/pricing#compare">Compare all {packages.length} packages{packages.length > limit ? ` incl. ${packages[packages.length - 1].name}` : ""}</a></div>
     </div>
   );
 }

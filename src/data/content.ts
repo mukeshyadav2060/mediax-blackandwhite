@@ -1,20 +1,39 @@
 export const outletsTop = ["business-insider", "apnews", "benzinga", "coinmarketcap", "cointelegraph", "the-block"];
 
-export const services = [
-  { n: "001", tag: "Crypto Press Release", title: "PR That Builds Trust in the Crypto World", img: "feature-crypto-press-release",
-    body: "We distribute your crypto press release on top tier crypto & mainstream media that get noticed. Whether you are launching a token, announcing funding, or rebranding, we shape your story for maximum reach." },
-  { n: "002", tag: "Media Relations", title: "Get Your Project in Front of the Right Eyes", img: "feature-media-relations",
-    body: "We connect you with top crypto media outlets like Cointelegraph, Decrypt, and Yahoo Finance. Get covered where your audience actively engages." },
-  { n: "003", tag: "Branding and Communications", title: "Clear Messaging for Web3 Brands", img: "feature-branding-and-communications",
-    body: "From pitch decks to announcements, we help you develop a consistent and compelling brand voice." },
-  { n: "004", tag: "Organic Coverage", title: "Let the Right People Talk About You", img: "feature-organic-coverage",
-    body: "Organic coverage offers crypto and Web3 projects authentic visibility through earned media placements, without paid promotions. It enhances brand credibility, investor trust, and long-term search engine presence across top-tier publications." },
+/* homepage Services section — copy from the MediaX CMS (MarketingFeatures) */
+export const services: { t: string; b: string; href: string; for: string[] }[] = [
+  { t: "Crypto press releases", href: "/crypto-press-release", for: ["Token launches", "Funding rounds", "Listings"],
+    b: "We write, polish and distribute your announcement across top-tier crypto and mainstream media — token launches, funding rounds, listings and rebrands." },
+  { t: "Media relations", href: "/publications", for: ["Exclusives", "Interviews", "Feature stories"],
+    b: "Direct relationships with editors at outlets like Cointelegraph, Decrypt and The Block, so your story lands where your audience already reads." },
+  { t: "Branding & communications", href: "/contact", for: ["Rebrands", "Pitch decks", "Launch messaging"],
+    b: "From pitch decks to announcements, we help you build a consistent, credible brand voice investors and users trust." },
+  { t: "Organic coverage", href: "/best-crypto-pr-agency", for: ["Credibility", "Investor trust", "Search presence"],
+    b: "Earned media placements that build credibility, investor trust and long-term search presence — without paid promotion." },
+  { t: "Influencer marketing", href: "/mk/crypto-influencer-marketing", for: ["Launch hype", "Community growth", "Airdrops"],
+    b: "Vetted KOLs on X, YouTube and Telegram who move real crypto audiences, with briefing and reporting handled for you." },
+  { t: "Link building & SEO", href: "/mk/crypto-link-building", for: ["SEO growth", "Brand searches", "New domains"],
+    b: "Editorial backlinks from reputable crypto and finance sites that keep your project ranking long after launch day." },
+];
+
+/* homepage Why MediaX section */
+export const proof: [number, string, string, string][] = [   // [value, prefix, suffix, label]
+  [1400, "", "+", "Crypto and Web3 projects served"],
+  [500, "", "+", "Guaranteed publications in every package"],
+  [35, "", "", "Premium crypto and finance outlets"],
+  [48, "<", "h", "From approval to live coverage"],
+];
+export const why: { t: string; b: string; href?: string }[] = [
+  { t: "Guaranteed, in writing", b: "Every package guarantees a minimum number of live publications. If it’s on your package, it gets published." },
+  { t: "Crypto-native editors", b: "Our team knows tokenomics, audits and listings, so your release reads like news — not an ad." },
+  { t: "Transparent pricing", b: "Public packages from $600, with every outlet named before you pay. No retainers, no surprises." },
+  { t: "Proof after every campaign", b: "A metric report with live URLs, reach and audience data you can share with your team and investors." },
 ];
 
 export const steps = [
   { n: "1", title: "Choose Your Package", img: "step-step-1-choose-your-package", body: "Select a plan that aligns with your budget and goals, or customize your distribution by picking individual publishers." },
   { n: "2", title: "Submit Your Press Release", img: "step-step-2-submit-your-press-release", body: "Share your story, and we’ll ensure it reaches the right audience with maximum visibility." },
-  { n: "3", title: "Get published fast", img: "step-step-3-get-published-instantly", body: "Your release goes out to top Web3 media outlets within 24 to 48 hours of your approval, expanding your reach." },
+  { n: "3", title: "Get Published Fast", img: "step-step-3-get-published-instantly", body: "Your release goes out to top Web3 media outlets within 24 to 48 hours of your approval, expanding your reach." },
   { n: "4", title: "Track & Measure Success", img: "step-step-4-track-measure-success", body: "Measure your press release performance with our metric reports, giving you clear insights into your campaign’s impact." },
 ];
 
@@ -40,8 +59,8 @@ export const posts = [
 export const faqs = [
   ["What is a crypto press release?", "A crypto press release is a short news-style article that announces something important about your Web3 or blockchain project. It is published across trusted crypto media sites to increase visibility and credibility."],
   ["How does MediaX work?", "Choose a plan, submit your press release or let us write it for you, and we will distribute it through our crypto PR distribution network. After it is live, we will send you a report with all placements and metrics."],
-  ["Where will my press release be published?", "Depending on your package, it will appear on sites like Coin Edition, NewsBTC, The Block, Yahoo Finance, and multiple others. View our media list."],
-  ["How much does a crypto press release cost?", "Our Lite plan starts at $1,399. All plans include guaranteed published articles. Ask us about bulk pricing or a custom quote."],
+  ["Where will my press release be published?", "Depending on your package, it will appear on outlets such as Cointelegraph, The Block, Decrypt, Bitcoin.com, Business Insider and AP News, plus hundreds of syndicated sites. Each package card lists its outlets, and the full network is on our Publications page."],
+  ["How much does a crypto press release cost?", "Packages start at $600 (Lite) and go up to $12,500 (Diamond). Every plan includes guaranteed publications, editorial assistance, SEO optimization and a metric report. Ask us about bulk pricing or a custom quote."],
   ["When will my press release go live?", "Our releases go live within 24 to 48 hours after approval. Express publishing is available if it is required on an expedited basis."],
   ["Do you guarantee media placements?", "Yes. All packages include guaranteed crypto press release distribution. We only work with verified media outlets."],
   ["Can I choose specific media outlets?", "Yes. You can select from our outlet list or let us recommend the best ones based on your goals including DeFi, NFT, AI, and more."],

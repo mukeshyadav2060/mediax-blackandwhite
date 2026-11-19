@@ -5,15 +5,43 @@ import Faq from "@/components/Faq";
 import QuoteSlider from "@/components/QuoteSlider";
 import Footer from "@/components/Footer";
 import HowSteps from "@/components/HowSteps";
-import { Count, Loader, Reveal, SmoothScroll, Split } from "@/components/Motion";
-import { clients, steps, testimonials } from "@/data/content";
+import {
+  Count,
+  Loader,
+  Reveal,
+  SmoothScroll,
+  Split,
+} from "@/components/Motion";
+import OutletWall from "@/components/OutletWall";
+import ServiceIndex from "@/components/ServiceIndex";
+import WhyPanel from "@/components/WhyPanel";
+import { clients, steps } from "@/data/content";
 
 // white-on-transparent client logos: shown on a dark tile so they stay visible
-const DARK_LOGOS = new Set(["1-centralis", "2-xypher", "4-bemine", "16-vameon", "21-rocky-rabbit", "23-vector-space", "11-rwa", "33-logo-icon-22"]);
+const DARK_LOGOS = new Set([
+  "1-centralis",
+  "2-xypher",
+  "4-bemine",
+  "16-vameon",
+  "21-rocky-rabbit",
+  "23-vector-space",
+  "11-rwa",
+  "33-logo-icon-22",
+]);
 const CAL = "https://calendly.com/mediaxagency/30min";
-
 /* "View the work ————•" style link */
-const Ln = ({ href, children }: { href: string; children: React.ReactNode }) => <a className="lnk" href={href}><b>{children}</b><i /></a>;
+const Ln = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) => (
+  <a className="lnk" href={href}>
+    <b>{children}</b>
+    <i />
+  </a>
+);
 
 export default function Home() {
   return (
@@ -24,14 +52,65 @@ export default function Home() {
       <main id="main">
         <Hero />
 
+        {/* Featured in */}
+        <section id="featured" className="sec mn ow-sec">
+          <div className="wrap ow-head">
+            <p className="lbl-s">Featured in</p>
+            <Split
+              as="h2"
+              className="display h-m"
+              text={"Published where crypto **reads**"}
+            />
+            <Reveal as="p" className="sub">
+              Crypto-native newsrooms and mainstream finance outlets in one
+              network, with every outlet named before you pay.
+            </Reveal>
+          </div>
+          <OutletWall />
+          <div className="wrap ow-foot">
+            <Reveal>
+              <Ln href="/publications">See all outlets</Ln>
+            </Reveal>
+          </div>
+        </section>
+
         {/* Pricing */}
         <section id="pricing" className="sec mn pricing-sec">
           <div className="wrap">
             <div className="pk2-head">
-              <Split as="h2" className="display h-m" text={"Choose your package"} />
-              <Reveal as="p" className="sub">Tap a package to see exactly which outlets it covers.</Reveal>
+              <Split
+                as="h2"
+                className="display h-m"
+                text={"Choose your package"}
+              />
+              <Reveal as="p" className="sub">
+                Every package guarantees publication. Tap one to see exactly
+                where you’ll be featured.
+              </Reveal>
             </div>
             <Pricing />
+          </div>
+        </section>
+
+        {/* Services */}
+        <section id="services" className="sec mn">
+          <div className="wrap">
+            <div className="svx-head">
+              <div>
+                <p className="lbl-s">Services</p>
+                <Split
+                  as="h2"
+                  className="display h-m"
+                  text={"PR that builds **trust**"}
+                />
+              </div>
+              <Reveal as="p" className="sub">
+                Expert storytelling, targeted outreach and strong media
+                relationships, so your project earns credibility, investors and
+                coverage where it counts.
+              </Reveal>
+            </div>
+            <ServiceIndex />
           </div>
         </section>
 
@@ -45,21 +124,42 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Why MediaX */}
+        <section id="why" className="sec mn why-sec">
+          <div className="wrap">
+            <WhyPanel />
+          </div>
+        </section>
+
         {/* Trusted by + featured quote */}
         <section id="clients" className="sec mn clients">
           <div className="wrap g12">
             <p className="lbl-s">Clients</p>
-            <h2 className="display h-m mn-title"><Count to={1400} suffix="+" /> crypto and Web3 projects trust MediaX</h2>
-            <div className="mn-body"><QuoteSlider /></div>
+            <h2 className="display h-m mn-title">
+              <Count to={1400} suffix="+" /> crypto and Web3 projects trust
+              MediaX
+            </h2>
+            <div className="mn-body">
+              <QuoteSlider />
+            </div>
           </div>
           <div className="marquee-logos tall">
             <div className="track slow">
-              {[0, 1].map((k) => clients.map((c) => (
-                <div className={DARK_LOGOS.has(c) ? "tile sq dk" : "tile sq"} key={`${k}-${c}`}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`/media/client-${c}.webp`} alt="" loading="lazy" />
-                </div>
-              )))}
+              {[0, 1].map((k) =>
+                clients.map((c) => (
+                  <div
+                    className={DARK_LOGOS.has(c) ? "tile sq dk" : "tile sq"}
+                    key={`${k}-${c}`}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`/media/client-${c}.webp`}
+                      alt=""
+                      loading="lazy"
+                    />
+                  </div>
+                )),
+              )}
             </div>
           </div>
         </section>
@@ -69,11 +169,21 @@ export default function Home() {
           <div className="wrap g12">
             <p className="lbl-s">FAQ</p>
             <div className="mn-title">
-              <Split as="h2" className="display h-m" text={"Questions before you buy?"} />
-              <Reveal as="p" className="sub">Book a 30-minute call and we’ll help you choose.</Reveal>
-              <Reveal><Ln href={CAL}>Book a call</Ln></Reveal>
+              <Split
+                as="h2"
+                className="display h-m"
+                text={"Questions before you buy?"}
+              />
+              <Reveal as="p" className="sub">
+                Book a 30-minute call and we’ll help you choose.
+              </Reveal>
+              <Reveal>
+                <Ln href={CAL}>Book a call</Ln>
+              </Reveal>
             </div>
-            <div className="mn-body"><Faq /></div>
+            <div className="mn-body">
+              <Faq />
+            </div>
           </div>
         </section>
       </main>
