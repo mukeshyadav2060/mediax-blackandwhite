@@ -1383,3 +1383,29 @@ a.fd-card.guide:hover,a.fd-card.stat:hover{background:var(--ink);color:var(--pap
   .why-list{grid-template-columns:1fr}
   .why{border-radius:16px}
 }
+
+/* =========================  pricing: five cards  ========================= */
+/* wide screens: one row of five, same card — slightly tighter padding and type to fit */
+.pk3-grid.n5{grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(8px,.9vw,14px)}
+.pk3-grid.n5 .pk3-top{padding:clamp(18px,1.6vw,24px)}
+.pk3-grid.n5 .pk3-pub{padding:clamp(16px,1.5vw,22px) clamp(18px,1.6vw,24px) clamp(18px,1.6vw,24px)}
+.pk3-grid.n5 .pk3-name h3{font-size:clamp(1.6rem,2.2vw,2.3rem)}
+.pk3-grid.n5 .pk3-price{font-size:clamp(2.2rem,2.9vw,3.2rem)}
+.pk3-grid.n5 .pk3-cta{font-size:13.5px;padding:13px 12px;gap:8px}
+.pk3-grid.n5 .pk3-pub li{gap:10px}
+.pk3-grid.n5 .pk3-pub li b{font-size:14px}
+.pk3-grid.n5 .pk3-rows dd{font-size:12px}
+.pk3-grid.n5 .pk3-best{min-height:4.4em}             /* up to 3 lines, so prices line up */
+.pk3-grid.n5 .pk3-pub ul{grid-template-columns:minmax(0,1fr)}  /* let long names truncate instead of pushing tags out */
+.pk3-grid.n5 .pk3-lab{flex-direction:column;align-items:flex-start;gap:4px}
+/* five-up on laptop widths: outlet names need the room more than the Crypto/Finance tag */
+@media(min-width:1280px) and (max-width:1599px){.pk3-grid.n5 .pk3-pub .tag{display:none}}
+/* below that: the swipe rail used on phones, ~2.5 cards in view */
+@media(max-width:1279px){
+  .pk3-grid.n5{display:flex;gap:12px;overflow-x:auto;overflow-y:visible;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-inline:calc(var(--gut)*-1);padding:14px var(--gut) 28px;scroll-padding-inline:var(--gut);align-items:stretch}
+  .pk3-grid.n5::-webkit-scrollbar{display:none}
+  .pk3-grid.n5 .pk3-card{flex:0 0 min(40%,340px);scroll-snap-align:start}
+  .pk3-grid.n5 .pk3-card:hover{transform:none}
+}
+@media(max-width:900px){.pk3-grid.n5 .pk3-card{flex-basis:min(62%,340px)}}
+@media(max-width:640px){.pk3-grid.n5 .pk3-card{flex-basis:min(84%,330px)}}

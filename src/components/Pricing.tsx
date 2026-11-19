@@ -9,8 +9,7 @@ const FEATS: { t: string; d: string; icon: React.ReactNode }[] = [
   { t: "Metric reports", d: "Live links, reach and audience.", icon: <path d="M4 20h16M7 16v-4M12 16V7M17 16v-6" /> },
 ];
 
-/* the grid is designed for four cards; the full line-up is on /pricing */
-export default function Pricing({ limit = 4 }: { limit?: number }) {
+export default function Pricing() {
   return (
     <div className="pricing pk3">
       <ul className="pk3-feats">
@@ -21,8 +20,8 @@ export default function Pricing({ limit = 4 }: { limit?: number }) {
           </li>
         ))}
       </ul>
-      <div className="pk3-grid">
-        {packages.slice(0, limit).map((p, i) => {
+      <div className={packages.length > 4 ? "pk3-grid n5" : "pk3-grid"}>
+        {packages.map((p, i) => {
           return (
             <article className="pk3-card" key={p.id} style={{ ["--d" as string]: `${i * 90}ms` }}>
               <div className="pk3-top">
@@ -44,7 +43,7 @@ export default function Pricing({ limit = 4 }: { limit?: number }) {
                   <div><dt>24–48h</dt><dd>to go live</dd></div>
                 </dl>
 
-                <a className="pk3-cta" href={`/submit-press-release?package=${p.id}`}>Get started with {p.name}<span aria-hidden>→</span></a>
+                <a className="pk3-cta" href={`/submit-press-release?package=${p.id}`}>Choose {p.name}<span aria-hidden>→</span></a>
               </div>
 
               <div className="pk3-pub">
@@ -66,7 +65,7 @@ export default function Pricing({ limit = 4 }: { limit?: number }) {
           );
         })}
       </div>
-      <div className="compare"><a className="btn glass" href="/pricing#compare">Compare all {packages.length} packages{packages.length > limit ? ` incl. ${packages[packages.length - 1].name}` : ""}</a></div>
+      <div className="compare"><a className="btn glass" href="/pricing#compare">Compare every package</a></div>
     </div>
   );
 }
