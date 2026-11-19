@@ -908,7 +908,8 @@ html.loading .fl{filter:blur(8px)}
 .foot .foot-title,.foot .foot-title .ln{text-align:center;margin-inline:auto}
 
 /* clients: wide single quote that slides to the next */
-.qs-view{overflow:hidden}
+.qs-view{overflow:hidden;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.qs-view.drag{cursor:grabbing}
 .qs-track{display:flex;transition:transform .9s cubic-bezier(.65,0,.2,1)}
 .qs-slide{flex:0 0 100%;min-width:0;padding-right:4px}
 .qs-slide blockquote{font-size:clamp(1.15rem,1.7vw,1.5rem);line-height:1.5;font-weight:300;letter-spacing:-.015em;max-width:46ch}
